@@ -1,39 +1,24 @@
-* {
-  margin: 0;
-  padding: 0;
+body{
+  overflow: hidden;
 }
 
-.slide{
-  width: 100vw;
-  height: 100vh;
-}
-
-.wrapper {
+.wrapper { 
   display: flex;
   flex-direction: row;
-  width: 400vw;
+  height: 100vh;
+  width: max-content; /* Necessário pro scroll da imagem ficar certinho */
   transform: rotate(90deg) translateY(-100vh);
   transform-origin: top left;
 }
 
-.one{
-  background: white;
-}
-
-.two{
-  background: black;
-}
-
-.three{
-  background: red;
-}
-
-.four{
-  background: green;
+.pnm{
+  display: block;
+  width: auto;
+  height: 100vh;
 }
 
 .outer-wrapper {
-  width: 100vh;
+  width: auto;
   height: 100vw;
   transform: rotate(-90deg) translateX(-100vh);
   transform-origin: top left;
@@ -41,4 +26,8 @@
   overflow-x: hidden;
   position: absolute;
   scrollbar-width: none;
+}
+
+.bus{
+  height: 80vh;
 }
