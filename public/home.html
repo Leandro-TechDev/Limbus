@@ -4,11 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="Tagmarker.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
+
 <body>
   <main id="site">
+    <div id="hero-section">
+      <div class="video-container">
+        <video muted autoplay loop id="background-video">
+          <source src="assets/WCity.mp4">
+          Seu navegador não suporta vídeos em HTML5.
+        </video>
+
+        <div class="hero-content">
+          <h1>Limbus Company</h1>
+          <p class="hero-subtitle">Uma cidade distópica</p>
+        </div>
+      </div>
+    </div>
+
     <div class="bus">
       <div class="outer-wrapper">
         <div class="wrapper">
@@ -17,7 +33,7 @@
       </div>
     </div>
   </main>
-  
+
 </body>
 <script>
 </script>

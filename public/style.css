@@ -1,6 +1,39 @@
-body{
-  overflow: hidden;
+@font-face {
+    font-family: 'Tagmarker';
+    src: url('fonts/tagmarker/Tagmarker.woff2') format('woff2'),
+        url('fonts/tagmarker/Tagmarker.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
+
+/*
+  Sessão principal
+*/
+
+#hero-section {
+  display: block;
+  min-height: 100vh;
+}
+
+.hero-content {
+  font-family: 'Tagmarker';
+  position: relative;
+  z-index: 1;
+  color: rgb(246, 111, 0);
+  top: 50%;
+}
+
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover; /* Mantém a proporção e preenche a tela */
+}
+
 
 .wrapper { 
   display: flex;
@@ -18,7 +51,7 @@ body{
 }
 
 .outer-wrapper {
-  width: auto;
+  width: 100vh;
   height: 100vw;
   transform: rotate(-90deg) translateX(-100vh);
   transform-origin: top left;
@@ -28,6 +61,7 @@ body{
   scrollbar-width: none;
 }
 
-.bus{
-  height: 80vh;
+.bus {
+  position: relative;
+  height: 100vh;
 }
