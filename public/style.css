@@ -7,6 +7,36 @@
     font-display: swap;
 }
 
+:root{
+  --color-ink-800: #1c1c1c;
+  --color-ink-900: #14110d;
+
+  --color-crimson-100: #ffdfdf;
+  --color-crimson-200: #ffc5c5;
+  --color-crimson-300: #ff9d9d;
+  --color-crimson-400: #ff6464;
+  --color-crimson-500: #f02d2d;
+  --color-crimson-600: #bd0000;
+  --color-crimson-700: #9b0000;
+  --color-crimson-800: #820000;
+  --color-crimson-900: #6b0a0a;
+  --color-crimson-950: #3b0000;
+
+  --color-gold-100:  #fff9e0;
+  --color-gold-200: #ffe27a;
+  --color-gold-300: #fcd44a;
+  --color-gold-400: #f5c518;
+  --color-gold-500: #f1bf02;
+
+  --bg-page: var(--color-ink-900);
+  --bg-surface: var(--color-ink-800);
+  --title-text: var(--color-gold-500);
+  --text-primary: var(--color-crimson-600);
+  --text-secondary: var(--color-gold-100); 
+
+  --logo-glow: color-mix(in srgb, var(--color-gold-400) 35%, transparent);
+}
+
 .font{
   font-family: 'Tagmarker';
 }
@@ -16,23 +46,29 @@
 */
 
 .header {
-  background-color: rgba(255, 255, 255, 0.402);
+  background-color: var(--bg-surface);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  border-radius: 10rem;
 }
 
 .header-section{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  color: var(--text-secondary);
+  font-family: cursive;
 }
+/*'Arial Narrow'*/
 
-#logo-text {
+.logo-text {
   font-size: 4rem;
   display: flex;
   align-items: center;
+  color: var(--title-text);
+  text-shadow: 0 0 0.9rem var(--logo-glow); 
 }
 
 .header-logo{
@@ -81,6 +117,17 @@
   World section
 */
 
-.city-section{
-  
+.world-section{
+  background-color: #121212;
+  background-image: url('assets/cityMap.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 99vw;
+  height: 100vh;
+}
+
+
+
+.redacted{
+  text-decoration: line-through;
 }
