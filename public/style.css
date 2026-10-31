@@ -7,61 +7,85 @@
     font-display: swap;
 }
 
+.font{
+  font-family: 'Tagmarker';
+}
+
+/*
+  Header
+*/
+
+.header {
+  background-color: rgba(255, 255, 255, 0.402);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-section{
+  display: flex;
+  flex-direction: row;
+}
+
+#logo-text {
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.header-logo{
+  max-width: 5rem;
+  margin: 10px;
+}
+
 /*
   Sessão principal
 */
 
+#site {
+  margin-top: 1rem;
+}
+
 #hero-section {
-  display: block;
-  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-content {
-  font-family: 'Tagmarker';
-  position: relative;
+  font-size: 4rem;
   z-index: 1;
-  color: rgb(246, 111, 0);
-  top: 50%;
+  color: #e6b500;
 }
 
-#background-video {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
-  object-fit: cover; /* Mantém a proporção e preenche a tela */
+.hero-container {
+  display: flex;
+  flex-direction: column;
 }
 
-
-.wrapper { 
+.hero-title {
   display: flex;
   flex-direction: row;
-  height: 100vh;
-  width: max-content; /* Necessário pro scroll da imagem ficar certinho */
-  transform: rotate(90deg) translateY(-100vh);
-  transform-origin: top left;
+  align-items: center;
 }
 
-.pnm{
+.hero-title h1 span:first-child {
   display: block;
-  width: auto;
-  height: 100vh;
+  font-size: 10rem;
 }
 
-.outer-wrapper {
-  width: 100vh;
-  height: 100vw;
-  transform: rotate(-90deg) translateX(-100vh);
-  transform-origin: top left;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  position: absolute;
-  scrollbar-width: none;
+.hero-title h1 {
+  line-height: 0.8;
+  margin: 0;
 }
 
-.bus {
-  position: relative;
-  height: 100vh;
+.hero-title h1 span:last-child { 
+  margin-top: -0.2rem; 
+}
+
+.hero-subtitle {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
 }
