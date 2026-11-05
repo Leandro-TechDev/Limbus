@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @font-face {
     font-family: 'Tagmarker';
     src: url('fonts/tagmarker/Tagmarker.woff2') format('woff2'),
@@ -8,6 +9,8 @@
 }
 
 :root{
+  --font-big-shoulders: 'Big Shoulders';
+  --font-tagmarker: 'Tagmarker';
   --color-ink-800: #1c1c1c;
   --color-ink-900: #14110d;
 
@@ -31,14 +34,10 @@
   --bg-page: var(--color-ink-900);
   --bg-surface: var(--color-ink-800);
   --title-text: var(--color-gold-500);
-  --text-primary: var(--color-crimson-600);
+  --accent-color: var(--color-crimson-600);
   --text-secondary: var(--color-gold-100); 
 
-  --logo-glow: color-mix(in srgb, var(--color-gold-400) 35%, transparent);
-}
-
-.font{
-  font-family: 'Tagmarker';
+  --logo-glow: color-mix(in oklch shorter hue, var(--color-gold-400) 35%, transparent);
 }
 
 /*
@@ -47,6 +46,7 @@
 
 .header {
   background-color: var(--bg-surface);
+  height: 5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -59,9 +59,8 @@
   flex-direction: row;
   justify-content: center;
   color: var(--text-secondary);
-  font-family: cursive;
+  font-family: var(--font-big-shoulders);
 }
-/*'Arial Narrow'*/
 
 .logo-text {
   font-size: 4rem;
@@ -69,6 +68,8 @@
   align-items: center;
   color: var(--title-text);
   text-shadow: 0 0 0.9rem var(--logo-glow); 
+  font-weight: 0;
+  font-family: var(--font-tagmarker);
 }
 
 .header-logo{
@@ -96,7 +97,7 @@
 }
 
 /*
-  Sessão principal
+  First Section
 */
 
 #site {
@@ -109,8 +110,11 @@
 }
 
 .hero-video {
+  position: relative;
   height: 100%;
   width: 100%;
+  z-index: -1;
+  margin-top: -3rem;
 }
 
 /*
@@ -118,16 +122,85 @@
 */
 
 .world-section{
+  display: flex;
   background-color: #121212;
   background-image: url('assets/cityMap.png');
   background-size: contain;
   background-repeat: no-repeat;
   width: 99vw;
   height: 100vh;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: var(--font-big-shoulders);
 }
 
+.city-section{
+  max-width: 20rem;
+  margin-right: 1rem;
+}
 
+.world-section h1{
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--accent-color);
+}
+
+.world-section span{
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--accent-color);
+}
+
+.world-section h2{
+  color: var(--title-text);
+  font-size: 1.1rem;
+}
 
 .redacted{
   text-decoration: line-through;
+}
+
+/*
+  Identity Archive
+*/
+
+.chara-archive {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  row-gap: 1rem;
+}
+
+@keyframes shake{
+  10%{
+    transform: translateX(1px);
+    transform: rotate(0.01turn);
+  }
+  25%{
+    transform: translateX(5px);
+    transform: rotate(0.05turn);
+  }
+  50%{
+    transform: translateX(1px); 
+    transform: rotate(0.01turn);
+  }
+  75%{
+    transform: translateX(-5px);
+    transform: rotate(-0.05turn);
+  }
+  100%{
+    transform: translateX(1px);
+    transform: rotate(0.01turn);
+  }
+}
+
+.identity {
+  width: 12vw;
+  height: auto;
+  transition: all 0.1s cubic-bezier(0.82, 0.075, 0.165, 0.82, 0.075);
+  transform-origin: top;
+}
+
+.identity:hover{
+  cursor: pointer;  
+  animation: shake 8s ease-in-out infinite;
 }
