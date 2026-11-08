@@ -170,37 +170,18 @@
   row-gap: 1rem;
 }
 
-@keyframes shake{
-  10%{
-    transform: translateX(1px);
-    transform: rotate(0.01turn);
-  }
-  25%{
-    transform: translateX(5px);
-    transform: rotate(0.05turn);
-  }
-  50%{
-    transform: translateX(1px); 
-    transform: rotate(0.01turn);
-  }
-  75%{
-    transform: translateX(-5px);
-    transform: rotate(-0.05turn);
-  }
-  100%{
-    transform: translateX(1px);
-    transform: rotate(0.01turn);
-  }
+@keyframes pendulum{
+  from { transform: rotate(15deg);  }
+  to { transform: rotate(-15deg); }
 }
 
 .identity {
   width: 12vw;
   height: auto;
-  transition: all 0.1s cubic-bezier(0.82, 0.075, 0.165, 0.82, 0.075);
   transform-origin: top;
 }
 
 .identity:hover{
   cursor: pointer;  
-  animation: shake 8s ease-in-out infinite;
+  animation: pendulum 2s ease-in-out infinite alternate;
 }
