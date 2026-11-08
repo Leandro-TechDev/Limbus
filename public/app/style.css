@@ -83,6 +83,19 @@ body{
   width: 15rem;
 }
 
+.dashboard-area {
+  width: 100%;
+}
+
+.dash-welcome {
+  display: inline-block;
+  color: var(--color-paper);
+  font-size: xx-large;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
 /*
   KPI Area
 */
@@ -96,12 +109,12 @@ body{
 
 .kpi-card {
   padding: 1rem;
-  margin: 20px;
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   background-color: var(--color-ink-900);
   border-radius: 24px;
-  width: 20vw;
+  width: 18vw;
   height: 15vh;
 }
 
@@ -165,6 +178,39 @@ body{
 
 .sinner-archive {
   position: relative;
+  top: -10px;
   width: 7rem;
   height: auto;
+}
+
+.kpi-card:nth-child(3) .kpi-title{
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  font-size: x-large;
+  margin-bottom: 1rem;
+  width: 100%;
+  background-color: var(--color-crimson-700);
+  border: var(--color-crimson-400) 1px solid;
+  border-radius: 10rem;
+  text-align: center;
+}
+
+#kpi-eval {
+  font-size: xxx-large;
+}
+
+.kpi-star {
+  font-size: xxx-large;
+  color: var(--color-gold-500);
+}
+
+/*
+  Área dos gráficos
+*/
+
+.area-graph{
+  background-color: pink;
 }
