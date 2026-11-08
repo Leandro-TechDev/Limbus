@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+  <title>Dashboard</title>
+</head>
+
+<body>
+  <main class="site">
+    <div class="user-area">
+      <img src="../assets/Limbus_logo_feather.png" alt="" width="100px">
+      <div class="user-btn">
+        Home
+      </div>
+      <div class="user-btn">
+        Visão Geral
+      </div>
+      <div class="user-btn">
+        Livros
+      </div>
+      <div class="user-btn">
+        Personagens
+      </div>
+
+      Do not reason with the city.
+
+
+    </div>
+    <div class="dashboard-area">
+      <div class="kpi-area">
+
+        <div class="kpi-card">
+          <div class="kpi-title">
+            Livros Lidos
+          </div>
+          <div class="kpi-body">
+            <span id="kpi-read">{LIDOS}</span> de 13
+          </div>
+          <div class="kpi-graph">
+            <div class="graph-fill" id="graph-bar"></div>
+          </div>
+          <p class="graph-percent" id="graph-percent"></p>
+        </div>
+
+        <div class="kpi-card">
+          <div id="kpi-structure">
+            <div>
+              <div class="kpi-title">
+                Personagem que despertou sua curiosidade
+              </div>
+              <div id="kpi-grid">
+                <span id="kpi-sinner">{NOME}</span>
+                <span id="kpi-curio">{RANKING}</span>
+              </div>
+            </div>
+            <img src="../assets/Cards/Sinner_1.webp" alt="" class="sinner-archive">
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-title">
+            Temas favoritos
+          </div>
+          <div id="kpi-structure">
+
+          </div>
+        </div>
+      </div>
+      <div class="graph-area">
+        <div class="my-eval"></div>
+        <div class="my-books"></div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
+
+<script>
+</script>

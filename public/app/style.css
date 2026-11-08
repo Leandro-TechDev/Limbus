@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+    font-family: 'Tagmarker';
+    src: url('fonts/tagmarker/Tagmarker.woff2') format('woff2'),
+        url('fonts/tagmarker/Tagmarker.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root{
+  --font-big-shoulders: 'Big Shoulders';
+  --font-tagmarker: 'Tagmarker';
+
+  --color-ink-900: #14110d;
+  --color-ink-800: #1f1c18;
+  --color-ink-600: #4a453e;
+  --color-ink-500: #6b655c;
+  --color-ink-200: #d9d5cc;
+
+  --color-night-950: #07060f;
+  --color-night-900: #0e0c1d;
+
+  --color-paper:     #faf8f3;
+  --color-input-unfocus:  #b9b4cc;
+  --color-input-bg:  #fdf6e3;
+
+  --color-crimson-100: #ffdfdf;
+  --color-crimson-200: #ffc5c5;
+  --color-crimson-300: #ff9d9d;
+  --color-crimson-400: #ff6464;
+  --color-crimson-500: #f02d2d;
+  --color-crimson-600: #bd0000;
+  --color-crimson-700: #9b0000;
+  --color-crimson-800: #820000;
+  --color-crimson-900: #6b0a0a;
+  --color-crimson-950: #3b0000;
+
+  --color-gold-100:  #fff9e0;
+  --color-gold-200: #ffe27a;
+  --color-gold-300: #fcd44a;
+  --color-gold-400: #f5c518;
+  --color-gold-500: #f1bf02;
+
+  --bg-page: var(--color-ink-900);
+  --bg-surface: var(--color-ink-800);
+  --title-text: var(--color-gold-500);
+  --accent-color: var(--color-crimson-600);
+  --text-secondary: var(--color-gold-100); 
+
+  --logo-glow: color-mix(in oklch shorter hue, var(--color-gold-400) 35%, transparent);
+}
+
+*, *::before, *::after {
+    margin: 0px;
+}
+
+body{
+  background-color: var(--color-ink-800);
+  width: 100%;
+  height: 100vh;
+  color: var(--title-text);
+}
+
+.site {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.user-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 13vw;
+  background-color: var(--color-ink-900);
+}
+
+.user-area img{
+  width: 15rem;
+}
+
+/*
+  KPI Area
+*/
+
+.kpi-area {
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: row;
+
+}
+
+.kpi-card {
+  padding: 1rem;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-ink-900);
+  border-radius: 24px;
+  width: 20vw;
+  height: 15vh;
+}
+
+.kpi-title {
+  font-size: x-large;
+}
+
+#kpi-box {
+  position: relative;
+  height: 6rem;
+  width: 100%;
+}
+
+.kpi-body {
+  font-size: xx-large;
+}
+
+.kpi-bar {
+  width: 100%;
+  height: 36px;
+  border: 2px solid #c5cad3;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.kpi-graph{
+  width: 100%;
+  height: 36px;
+  border: 2px solid #c5cad3;
+  border-radius: 14px;
+  overflow: hidden;  
+}
+
+.graph-fill {
+  height: 100%;
+  background: #961814;
+  border-radius: 12px;
+}
+
+.graph-percent {
+  text-align: center;
+  font-weight: 700;
+  margin: 8px 0 0;
+}
+
+#kpi-structure{
+  display: flex;
+  flex-direction: row;
+}
+
+#kpi-structured div{
+  display: flex;
+  flex-direction: column;
+}
+
+#kpi-grid{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.sinner-archive {
+  position: relative;
+  width: 7rem;
+  height: auto;
+}
