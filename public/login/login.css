@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+    font-family: 'Tagmarker';
+    src: url('fonts/tagmarker/Tagmarker.woff2') format('woff2'),
+        url('fonts/tagmarker/Tagmarker.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root{
+  --font-big-shoulders: 'Big Shoulders';
+  --font-tagmarker: 'Tagmarker';
+
+  --color-ink-900: #14110d;
+  --color-ink-800: #1f1c18;
+  --color-ink-600: #4a453e;
+  --color-ink-500: #6b655c;
+  --color-ink-200: #d9d5cc;
+
+  --color-night-950: #07060f;
+  --color-night-900: #0e0c1d;
+
+  --color-paper:     #faf8f3;
+  --color-input-unfocus:  #b9b4cc;
+  --color-input-bg:  #fdf6e3;
+
+  --color-crimson-100: #ffdfdf;
+  --color-crimson-200: #ffc5c5;
+  --color-crimson-300: #ff9d9d;
+  --color-crimson-400: #ff6464;
+  --color-crimson-500: #f02d2d;
+  --color-crimson-600: #bd0000;
+  --color-crimson-700: #9b0000;
+  --color-crimson-800: #820000;
+  --color-crimson-900: #6b0a0a;
+  --color-crimson-950: #3b0000;
+
+  --color-gold-100:  #fff9e0;
+  --color-gold-200: #ffe27a;
+  --color-gold-300: #fcd44a;
+  --color-gold-400: #f5c518;
+  --color-gold-500: #f1bf02;
+
+  --bg-page: var(--color-ink-900);
+  --bg-surface: var(--color-ink-800);
+  --title-text: var(--color-gold-500);
+  --accent-color: var(--color-crimson-600);
+  --text-secondary: var(--color-gold-100); 
+
+  --logo-glow: color-mix(in oklch shorter hue, var(--color-gold-400) 35%, transparent);
+}
+
+*, *::before, *::after {
+    margin: 0px;
+}
+
+body{
+  background-color: var(--color-night-900);
+  width: 100%;
+  height: 100vh;
+  color: var(--title-text);
+}
+
+.site {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.background-image {
+  display: flex;
+  align-items: center;
+}
+
+.background-image img {
+  width: 70vw;
+  height: 70vh;
+  filter: blur(1px);
+}
+
+.login-area{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+}
+
+.user-Info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.user-Info label {
+  font-size: 3rem;
+}
+
+.user-input {
+  color: var(--color-ink-900);
+  padding: 1rem;
+  font-size: xx-large;
+  height: 3rem;
+  width: 20vw;
+  border: 2px solid transparent;
+  background: var(--color-input-unfocus);
+  border-radius: 20rem;
+}
+
+.user-input:hover {
+  background-color: var(--color-input-bg);
+  border-color: #f7c667;
+}
+
+.user-input:focus {
+  outline: none;
+  border-color: var(--color-star-400);
+}
