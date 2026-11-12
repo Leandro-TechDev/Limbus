@@ -84,7 +84,8 @@ body{
 }
 
 .dashboard-area {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .dash-welcome {
@@ -170,7 +171,7 @@ body{
   flex-direction: column;
 }
 
-#kpi-grid{
+.kpi-grid{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -211,6 +212,93 @@ body{
   Área dos gráficos
 */
 
-.area-graph{
-  background-color: pink;
+.graph-area{
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+}
+
+.my-eval {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-page);
+  width: 35vw;
+  padding: 2rem 4rem 4rem 4rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  gap: 1rem;
+  border-radius: 0.75rem;
+}
+
+.my-books {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--bg-page);
+  width: 34vw;
+  padding: 2rem 4rem 4rem 4rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  border-radius: 0.75rem;
+}
+
+.chart-box {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+#dough-graph {
+  width: 40rem;
+  height: 20rem;
+  justify-self: flex-end;
+  align-self: center;
+}
+
+.graph-title{
+  color: var(--text-secondary);
+  font-size: xx-large;
+}
+
+.graph-sub{
+  color: var(--color-input-unfocus);
+  font-size: x-large;
+}
+
+.book-card{
+  display: flex;
+  flex-direction: row;
+  padding: 0.75rem 1rem;
+  gap: 1rem;
+  width: 15rem;
+  background-color: var(--bg-surface);
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.book-card-text{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  min-width: 0;
+  gap: 0.25rem;
+}
+
+.book-img {
+  width: 3rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+}
+
+.book-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-paper);
+}
+
+.book-author {
+  font-size: 0.9rem;
+  color: var(--color-input-unfocus);
 }

@@ -56,7 +56,7 @@
               <div class="kpi-title">
                 Personagem que despertou sua curiosidade
               </div>
-              <div id="kpi-grid">
+              <div class="kpi-grid">
                 <span id="kpi-sinner">{NOME}</span>
                 <span id="kpi-curio">{RANKING}</span>
               </div>
@@ -69,7 +69,7 @@
           <div class="kpi-title">
             Seus temas favoritos
           </div>
-          <div id="kpi-grid">
+          <div class="kpi-grid">
             <span class="badge" id="frstTheme">Solidão</span>
             <span class="badge" id="scndTheme">Guerra</span>
             <span class="badge" id="thrdTheme">Identidade</span>
@@ -96,14 +96,172 @@
       </div>
 
       <div class="graph-area">
-        <div class="my-eval"></div>
-        <div class="my-books"></div>
+        <div class="my-eval">
+          <span class="graph-title">Minhas Avaliações</span>
+          <span class="graph-sub">Personagens</span>
+          <div class="chart-box">
+            <canvas id="eval-characters"></canvas>
+          </div>
+
+          <span class="graph-sub">Livros</span>
+          <div class="chart-box">
+            <canvas id="eval-books"></canvas>
+          </div>
+
+        </div>
+
+        <div class="my-books">
+          <div id="book-section">
+            <span class="graph-title">Livros lidos</span>
+            <div class="book-grid">
+              <div class="book-card">
+                <img src="https://fl-storage.bookinfometadados.com.br/uploads/book/first_cover/9788501923141.jpg" alt=""
+                  class="book-img">
+                <div class="book-card-text">
+                  <span class="book-title">{BOOK1}</span>
+                  <span class="book-author">{AUTOR1}</span>
+                  <span class="book-rating">★ {nota}</span>
+                </div>
+              </div>
+
+              <div class="book-card">
+                <img src="https://fl-storage.bookinfometadados.com.br/uploads/book/first_cover/9788501923141.jpg" alt=""
+                  class="book-img">
+                <div class="book-card-text">
+                  <span class="book-title">{BOOK1}</span>
+                  <span class="book-author">{AUTOR1}</span>
+                  <span class="book-rating">★ {nota}</span>
+                </div>
+              </div>
+
+              <div class="book-card">
+                <img src="https://fl-storage.bookinfometadados.com.br/uploads/book/first_cover/9788501923141.jpg" alt=""
+                  class="book-img">
+                <div class="book-card-text">
+                  <span class="book-title">{BOOK1}</span>
+                  <span class="book-author">{AUTOR1}</span>
+                  <span class="book-rating">★ {nota}</span>
+                </div>
+              </div>
+
+              <div class="book-card">
+                <img src="https://fl-storage.bookinfometadados.com.br/uploads/book/first_cover/9788501923141.jpg" alt=""
+                  class="book-img">
+                <div class="book-card-text">
+                  <span class="book-title">{BOOK1}</span>
+                  <span class="book-author">{AUTOR1}</span>
+                  <span class="book-rating">★ {nota}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-box" id="dough-graph">
+            <canvas id="dough-books"></canvas>
+          </div>
+
+        </div>
       </div>
     </div>
   </main>
+  <script>
+
+    /*
+      Doughnut
+    */
+
+    const data = {
+      labels: ['Lido', 'Não lido'],
+      datasets: [
+        {
+          label: 'Leitura',
+          data: [6, 7],
+          backgroundColor: ['#9b0000', '#000000'],
+          borderWidth: 0,
+          borderRadius: 0,
+        }
+      ]
+    };
+
+    const dough = new Chart(
+      document.getElementById('dough-books').getContext('2d'),
+      {
+        type: 'doughnut',
+        data: data,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: '' }
+          }
+        }
+      }
+    );
+
+    /*
+      Bar section
+    */
+    let lbl = ['Yi Sang', 'Meursault', 'Rodya', 'Don Quixote', 'Faust']
+    let lblBook = ['Fly Wings', 'Lestranger', 'Crime and punishment', 'Don quixote', 'Fausto']
+
+    const evalPer = new Chart(
+      document.getElementById('eval-characters').getContext('2d'),
+      {
+        type: 'bar',
+        data: {
+          labels: lbl,
+          datasets: [{
+            label: 'Nota',
+            data: [5, 5, 4, 4, 3.5],
+            backgroundColor: '#9b0000',
+            borderColor: '#ff6464',
+            borderWidth: 2,
+            borderRadius: 6,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { min: 0, max: 5, ticks: { color: '#fff9e0', stepSize: 1 } },
+            x: { ticks: { color: '#fff9e0' } }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      }
+    );
+
+    const evalBook = new Chart(
+      document.getElementById('eval-books').getContext('2d'),
+      {
+        type: 'bar',
+        data: {
+          labels: lblBook,
+          datasets: [{
+            label: 'Nota',
+            data: [5, 5, 4, 4, 3.5],
+            backgroundColor: '#f1bf02',
+            borderColor: '#ffe27a',
+            borderWidth: 2,
+            borderRadius: 6,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { min: 0, max: 5, ticks: { color: '#fff9e0', stepSize: 1 } },
+            x: { ticks: { color: '#fff9e0' } }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      }
+    );
+  </script>
 </body>
 
 </html>
-
-<script>
-</script>
