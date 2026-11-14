@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="cad.css">
+  <script src="script.js"></script>
+
+  <title>Login</title>
+</head>
+
+<body>
+  <main class="site">
+    <img src="../assets/Star.webp" alt="" class="background-img">
+    <div id="login-area">
+      <div id="login-card">
+
+        <div id="login-images">
+          <a href="../index.html">
+            <img src="../assets/arrow-left.svg" alt="" class="login-img">
+          </a>
+          <img src="../assets/Site-logo.webp" alt="" class="login-img">
+        </div>
+
+        <div id="login-body">
+          <span id="login-title">Crie sua conta!</span>
+          <div class="user-Info">
+            <label for="userName">Nome</label>
+            <input type="text" class="user-input" id="userName" placeholder='ex.: Ryan Batista'>
+          </div>
+          <div class="user-Info">
+            <label for="userEmail">Email</label>
+            <input type="email" class="user-input" id="userEmail" placeholder='example@gmail.com'>
+          </div>
+          <div class="user-Info">
+            <label for="userPwd">Senha</label>
+            <div class="senha">A sua senha precisa de um caracter especial, uma letra maíuscula e uma minúscula</div>
+            <input type="password" class="user-input" id="userPwd" placeholder='••••••' oninput="verificarSenhaIgual(); verificarNivel(userPwd.value)"
+            >
+          </div>
+          <div class="user-Info">
+            <label for="userPwdConfirm">Confirmar senha</label>
+            <div id="extra"></div>
+            <input type="password" class="user-input" id="userPwdConfirm" placeholder='••••••'
+            oninput="verificarSenhaIgual()">
+          </div>
+        </div>
+
+        <div id="form-footer">
+          <button onclick="entrar()" id="button-form">Entrar</button>
+          <div id="form-cad">
+            <img src="../assets/rodya.png" alt="">
+            <a href="../cad/cad.html" style="text-decoration: none;">
+              <div id="form-sender" >
+                <span class="call" id="call-not">Não tem cadastro?</span> 
+                <span class="call" id="call-enter">Entre aqui!</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

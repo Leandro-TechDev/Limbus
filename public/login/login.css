@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @font-face {
     font-family: 'Tagmarker';
-    src: url('fonts/tagmarker/Tagmarker.woff2') format('woff2'),
-        url('fonts/tagmarker/Tagmarker.woff') format('woff');
+    src: url('../fonts/tagmarker/Tagmarker.woff2') format('woff2'),
+        url('../fonts/tagmarker/Tagmarker.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -59,7 +59,7 @@ body{
   background-color: var(--color-night-900);
   width: 100%;
   height: 100vh;
-  color: var(--title-text);
+  color: var(--text-secondary);
 }
 
 .site {
@@ -68,44 +68,86 @@ body{
   height: 100%;
 }
 
-.background-image {
-  display: flex;
-  align-items: center;
+.background-img {
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  filter: blur(10px);
 }
 
-.background-image img {
-  width: 70vw;
-  height: 70vh;
-  filter: blur(1px);
-}
+/*
+----------------------------------------------
+*/
 
-.login-area{
+#login-area{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
+}
+
+#login-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   width: 30vw;
+  height: 70vh;
+  text-align: center;
+  background-color: var(--bg-page);
+  border-radius: 30px;
+}
+
+#login-body {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+#login-title{
+  font-size: xxx-large;
+  font-family: var(--font-big-shoulders);
+  font-style: italic;
+}
+
+#login-images{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.login-img {
+  padding: 0 1.2rem 0 1.2rem;
+  width: auto;
+  height: 5rem;
 }
 
 .user-Info {
   display: flex;
   flex-direction: column;
+  align-items: start;
   margin-top: 2rem;
 }
 
 .user-Info label {
-  font-size: 3rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-family: var(--font-big-shoulders);
 }
 
 .user-input {
   color: var(--color-ink-900);
-  padding: 1rem;
+  width: 100%;
+  padding: 0.5rem;
   font-size: xx-large;
-  height: 3rem;
-  width: 20vw;
   border: 2px solid transparent;
   background: var(--color-input-unfocus);
-  border-radius: 20rem;
+  border-radius: 1rem;
 }
 
 .user-input:hover {
@@ -116,4 +158,58 @@ body{
 .user-input:focus {
   outline: none;
   border-color: var(--color-star-400);
+}
+
+#button-form{
+  font-family: var(--font-big-shoulders);
+  width: 80%;
+  font-size: xx-large;
+  background-color: var(--bg-surface);
+  color: var(--color-paper);
+  border: 1px var(--color-paper) solid;
+  border-radius: 10px;
+}
+
+#button-form:hover {
+  background-color: var(--color-input-bg);
+  cursor: pointer;
+  color: var(--color-night-900);
+}
+
+#form-footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#form-cad{
+  display: flex;
+  flex-direction: row;
+  padding: 6px;
+  border-radius: 10px;
+}
+
+#form-sender {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#form-cad img {
+  width: 5rem;
+  height: auto;
+}
+
+.call{
+  color: var(--color-paper);
+  font-family: var(--font-big-shoulders);
+  font-size: xx-large;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+#call-enter {
+  font-size: x-large;
 }

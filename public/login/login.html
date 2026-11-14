@@ -5,78 +5,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="login.css">
+  <script src="script.js"></script>
+
   <title>Login</title>
 </head>
 
 <body>
   <main class="site">
-    <div class="background-image">
-      <img src="../assets/Star.webp">
-    </div>
-    <div class="login-area">
-      <div class="user-Info">
-        <label for="userEmail">Email</label>
-        <input type="text" class="user-input" id="userEmail" placeholder='example@gmail.com'>
-      </div>
-      <div class="user-Info">
-        <label for="userPwd">Senha</label>
-        <div class="senha">A sua senha precisa de...</div>
-        <input type="text" class="user-input" id="userPwd" placeholder='••••••'>
+    <img src="../assets/Star.webp" alt="" class="background-img">
+    <div id="login-area">
+      <div id="login-card">
+
+        <div id="login-images">
+          <a href="../index.html">
+            <img src="../assets/arrow-left.svg" alt="" class="login-img">
+          </a>
+          <img src="../assets/Site-logo.webp" alt="" class="login-img">
+        </div>
+
+        <div id="login-body">
+          <span id="login-title">Acesse sua conta</span>
+          <div class="user-Info">
+            <label for="userEmail">Email</label>
+            <input type="email" class="user-input" id="userEmail" placeholder='example@gmail.com'>
+          </div>
+          <div class="user-Info">
+            <label for="userPwd">Senha</label>
+            <div class="senha">A sua senha precisa de...</div>
+            <input type="password" class="user-input" id="userPwd" placeholder='••••••'>
+          </div>
+        </div>
+        <div id="form-footer">
+          <button onclick="entrar()" id="button-form">Entrar</button>
+          <div id="form-cad">
+            <img src="../assets/rodya.png" alt="">
+            <a href="../cad/cad.html" style="text-decoration: none;">
+              <div id="form-sender" >
+                <span class="call" id="call-not">Não tem cadastro?</span> 
+                <span class="call" id="call-enter">Entre aqui!</span>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </main>
 </body>
 
 </html>
-
-<script>
-  function entrar() {
-    let emailVar = userEmail.value;
-    let senhaVar = userPwd.value;
-
-    if (emailVar == "" || senhaVar == "") {
-     
-      return
-    }
-
-    fetch("/usuarios/autenticar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        emailServer: emailVar,
-        senhaServer: senhaVar
-      })
-    }).then(function (resposta) {
-      if (resposta.ok) {
-        console.log(resposta);
-
-        resposta.json().then(json => {
-          console.log(json);
-          console.log(JSON.stringify(json));
-          sessionStorage.EMAIL_USUARIO = json.email;
-          sessionStorage.NOME_USUARIO = json.nome;
-          sessionStorage.ID_USUARIO = json.id;
-
-          setTimeout(function () {
-            window.location = "./dashboard/cards.html";
-          }, 1000);
-        });
-      } else {
-        console.log("Houve um erro ao tentar realizar o login!");
-        resposta.text().then(texto => {
-          console.error(texto);
-          finalizarAguardar(texto);
-        });
-      }
-    }).catch(function (erro) {
-      console.log(erro);
-    })
-    return false;
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none"
-  }
-</script>
