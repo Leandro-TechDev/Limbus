@@ -34,6 +34,7 @@ function carregaPersonagem(num) {
   }).then(res => {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     res.json().then(data => {
+      
       renderizador(data)
     });
   }).catch(function (erro) {
@@ -42,14 +43,16 @@ function carregaPersonagem(num) {
 }
 
 function renderizador(data) {
-  document.getElementById('char-name').textContent = `#${data.id} — ${data.nome}`;
-  document.getElementById('char-desc').textContent = data.descricao;
-  document.getElementById('char-book').textContent = data.titulo;
-  document.getElementById('char-author').textContent = data.autor;
+  document.getElementById('char-num').textContent = `Pecador #${data.id}`
+  document.getElementById('char-name').textContent = `${data.nome}`
+  document.getElementById('char-img').src = `assets/Sinners/Sin${data.id}.webp`
+  document.getElementById('char-desc').textContent = data.descricao
+  document.getElementById('char-book').textContent = data.titulo
+  document.getElementById('char-author').textContent = data.autor
 }
 
 function fecharPersonagem() {
-  profileView.hidden = true;
-  charactersView.hidden = false;
-  charactersView.scrollIntoView({ behavior: 'smooth' });
+  profileView.hidden = true
+  charactersView.hidden = false
+  charactersView.scrollIntoView({ behavior: 'smooth' })
 }

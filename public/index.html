@@ -109,15 +109,13 @@
             </div>
           </div>
         </div>
-
-        <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
-        <div class="swiper-scrollbar"></div>
       </div>
     </section>
 
     <section class="characters" id="characters-view">
+      <span id="chara-title">Personagens</span>
       <div class="chara-archive">
         <img class="identity" src="assets/Cards/Sinner_1.webp" onclick="troca(1)">
         <img class="identity" src="assets/Cards/Sinner_2.png" onclick="troca(2)">
@@ -137,15 +135,21 @@
 
 
   <section class="character-profile" id="character-profile" hidden>
-    <button class="profile-back" onclick="fecharPersonagem()">
-      <img src="assets/arrow-left.svg" alt="←">
-      Voltar
-    </button>
-    <img id="char-img" alt="">
-    <div class="profile-text">
-      <h2 id="char-name"></h2>
-      <p id="char-desc"></p>
+    <div id="profile-card">
+      <img id="char-img" alt="">
+      <div class="profile-body">
+        <button id="profile-back" onclick="fecharPersonagem()">
+          <img src="assets/arrow-left.svg" alt="←">
+          Voltar
+        </button>
+        <div class="profile-text">
+          <h2 id="char-num"></h2>
+          <h1 id="char-name"></h2>
+          <p id="char-desc"></p>
+        </div>
+      </div>
     </div>
   </section>
 </body>
+
 </html>

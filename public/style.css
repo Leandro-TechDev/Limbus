@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @font-face {
-    font-family: 'Tagmarker';
-    src: url('fonts/tagmarker/Tagmarker.woff2') format('woff2'),
-        url('fonts/tagmarker/Tagmarker.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Tagmarker';
+  src: url('fonts/tagmarker/Tagmarker.woff2') format('woff2'),
+    url('fonts/tagmarker/Tagmarker.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-:root{
+:root {
   --font-big-shoulders: 'Big Shoulders';
   --font-tagmarker: 'Tagmarker';
   --color-ink-800: #1c1c1c;
@@ -25,7 +26,7 @@
   --color-crimson-900: #6b0a0a;
   --color-crimson-950: #3b0000;
 
-  --color-gold-100:  #fff9e0;
+  --color-gold-100: #fff9e0;
   --color-gold-200: #ffe27a;
   --color-gold-300: #fcd44a;
   --color-gold-400: #f5c518;
@@ -35,7 +36,7 @@
   --bg-surface: var(--color-ink-800);
   --title-text: var(--color-gold-500);
   --accent-color: var(--color-crimson-600);
-  --text-secondary: var(--color-gold-100); 
+  --text-secondary: var(--color-gold-100);
 
   --logo-glow: color-mix(in oklch shorter hue, var(--color-gold-400) 35%, transparent);
 }
@@ -54,7 +55,7 @@
   border-radius: 10rem;
 }
 
-.header-section{
+.header-section {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -67,17 +68,17 @@
   display: flex;
   align-items: center;
   color: var(--title-text);
-  text-shadow: 0 0 0.9rem var(--logo-glow); 
+  text-shadow: 0 0 0.9rem var(--logo-glow);
   font-weight: 0;
   font-family: var(--font-tagmarker);
 }
 
-.header-logo{
+.header-logo {
   max-width: 5rem;
   margin: 10px;
 }
 
-.header-nav{
+.header-nav {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -85,7 +86,7 @@
   gap: 2.5rem;
 }
 
-.user-area{
+.user-area {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
@@ -104,10 +105,20 @@
   margin-top: 1rem;
 }
 
-.hero-section{
+.hero-section {
   position: relative;
-  height: 100vh;
+  height: 80vh;
   width: 99vw;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(18, 18, 18, 0.024) 0%,
+      rgba(18, 18, 18, 0.1) 40%,
+      rgba(18, 18, 18, 0.4) 72%,
+      rgb(0, 0, 0) 100%);
 }
 
 .hero-video {
@@ -131,7 +142,7 @@
   World section
 */
 
-.world-section{
+.world-section {
   display: flex;
   background-color: #121212;
   width: 99vw;
@@ -165,62 +176,78 @@
 .world-section .swiper-slide::before {
   content: "";
   position: absolute;
-  inset: 0 0 0 90%;
-  background: linear-gradient(
-    90deg,
-    rgba(18, 18, 18, 0) 0%,
-    rgba(18, 18, 18, 0.25) 40%,
-    rgba(18, 18, 18, 0.8) 72%,
-    rgba(18, 18, 18) 100%
-  );
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(18, 18, 18, 0) 0%,
+      rgba(18, 18, 18, 0.25) 40%,
+      rgba(18, 18, 18, 0.8) 72%,
+      rgb(18, 18, 18) 100%) right / 10% 100% no-repeat,
+    /* esquerda */
+    linear-gradient(-90deg,
+      rgba(18, 18, 18, 0) 0%,
+      rgba(18, 18, 18, 0.25) 40%,
+      rgba(18, 18, 18, 0.8) 72%,
+      rgb(18, 18, 18) 100%) left / 10% 100% no-repeat,
+    /* embaixo */
+    linear-gradient(180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.25) 40%,
+      rgba(0, 0, 0, 0.8) 72%,
+      rgb(0, 0, 0) 100%) bottom / 100% 10% no-repeat,
+    /* em cima */
+    linear-gradient(0deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.25) 40%,
+      rgba(0, 0, 0, 0.8) 72%,
+      rgb(0, 0, 0) 100%) top / 100% 10% no-repeat;
 }
 
-.world-section .swiper-slide::after {
-  content: "";
-  position: absolute;
-  inset: 0 90% 0 0;
-  background: linear-gradient(
-    -90deg,
-    rgba(18, 18, 18, 0) 0%,
-    rgba(18, 18, 18, 0.25) 40%,
-    rgba(18, 18, 18, 0.8) 72%,
-    rgba(18, 18, 18) 100%
-  );
+#slide-city {
+  background-image: url('assets/cityMap.png');
 }
 
-#slide-city { background-image: url('assets/cityMap.png'); }
-#slide-districts { background-image: url('assets/lCorp.webp'); }
-#slide-wings { background-image: url('assets/wings.webp'); }
-#slide-limbus { background-image: url('assets/Star.webp'); }
+#slide-districts {
+  background-image: url('assets/lCorp.webp');
+}
 
-.swiper-button-prev, .swiper-button-next {
+#slide-wings {
+  background-image: url('assets/wings.webp');
+}
+
+#slide-limbus {
+  background-image: url('assets/Star.webp');
+}
+
+.swiper-button-prev,
+.swiper-button-next {
   --swiper-navigation-size: 1.5rem;
   top: auto;
 }
 
-.city-section{
+.city-section {
   max-width: 20rem;
   margin-right: 1rem;
 }
 
-.world-section h1{
+.world-section h1 {
   font-size: 2rem;
   font-weight: 900;
   color: var(--accent-color);
 }
 
-.world-section span{
+.world-section span {
   font-size: 1rem;
   font-weight: 900;
   color: var(--accent-color);
 }
 
-.world-section h2{
+.world-section h2 {
   color: var(--title-text);
   font-size: 1.1rem;
 }
 
-.redacted{
+.redacted {
   text-decoration: line-through;
 }
 
@@ -230,13 +257,19 @@
 
 .chara-archive {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  row-gap: 1rem;
+  grid-template-columns: repeat(6, 230px);
+  gap: 2rem;
+  justify-content: center;
 }
 
-@keyframes pendulum{
-  from { transform: rotate(15deg);  }
-  to { transform: rotate(-15deg); }
+@keyframes pendulum {
+  from {
+    transform: rotate(15deg);
+  }
+
+  to {
+    transform: rotate(-15deg);
+  }
 }
 
 .identity {
@@ -245,11 +278,61 @@
   transform-origin: top;
 }
 
-.identity:hover{
-  cursor: pointer;  
+.identity:hover {
+  cursor: pointer;
   animation: pendulum 2s ease-in-out infinite alternate;
 }
 
-.character-profile[hidden] { 
+#chara-title{
+  display: inline-block;
+  width: 100%;
+  color: var(--text-secondary);
+  font-family: var(--font-tagmarker);
+  font-size: 8rem;
+  text-align: center;
+  letter-spacing: 2rem;
+}
+
+#profile-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-body {
+  width: 100%;
+}
+
+#profile-back {
+  background-color: #000000;
+  border: none;
+}
+
+.character-profile[hidden] {
   display: none;
+}
+
+.character-profile {
+  width: auto;
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-secondary);
+  align-items: center;
+  justify-content: center;
+}
+
+#char-num {
+  font-family: var(--font-big-shoulders);
+  font-size: 3rem;
+}
+
+#char-name {
+  font-family: var(--font-big-shoulders);
+  font-size: 6rem;
+  margin-top: -15px;
 }
