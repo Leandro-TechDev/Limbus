@@ -14,7 +14,7 @@ function infoPersonagem(req, res) {
 
       if (resultado.length == 1) {
         console.log(resultado);
-        res.status(201).json(resultado[0])
+        res.status(200).json(resultado[0])
       } else if (resultado.length == 0) {
         res.status(403).send("Personagem não encontrado no MYSQL");
       } else {
