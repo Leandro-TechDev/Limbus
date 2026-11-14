@@ -27,7 +27,7 @@ function entrar() {
           sessionStorage.ID_USUARIO = user.id;
 
           setTimeout(function () {
-            
+            window.location('../app/index.html')
           }, 1000);
         });
       } else {

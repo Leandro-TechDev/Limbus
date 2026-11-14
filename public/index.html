@@ -117,24 +117,35 @@
       </div>
     </section>
 
-    <section class="characters">
+    <section class="characters" id="characters-view">
       <div class="chara-archive">
-        <img class="identity" src="assets/Cards/Sinner_1.webp">
-        <img class="identity" src="assets/Cards/Sinner_2.png">
-        <img class="identity" src="assets/Cards/Sinner_3.png">
-        <img class="identity" src="assets/Cards/Sinner_4.webp">
-        <img class="identity" src="assets/Cards/Sinner_5.png">
-        <img class="identity" src="assets/Cards/Sinner_6.png">
-        <img class="identity" src="assets/Cards/Sinner_7.png">
-        <img class="identity" src="assets/Cards/Sinner_8.webp">
-        <img class="identity" src="assets/Cards/Sinner_9.png">
-        <img class="identity" src="assets/Cards/Sinner_10.png">
-        <img class="identity" src="assets/Cards/Sinner_11.webp">
-        <img class="identity" src="assets/Cards/Sinner_13.png">
+        <img class="identity" src="assets/Cards/Sinner_1.webp" onclick="troca(1)">
+        <img class="identity" src="assets/Cards/Sinner_2.png" onclick="troca(2)">
+        <img class="identity" src="assets/Cards/Sinner_3.png" onclick="troca(3)">
+        <img class="identity" src="assets/Cards/Sinner_4.webp" onclick="troca(4)">
+        <img class="identity" src="assets/Cards/Sinner_5.png" onclick="troca(5)">
+        <img class="identity" src="assets/Cards/Sinner_6.png" onclick="troca(6)">
+        <img class="identity" src="assets/Cards/Sinner_7.png" onclick="troca(7)">
+        <img class="identity" src="assets/Cards/Sinner_8.webp" onclick="troca(8)">
+        <img class="identity" src="assets/Cards/Sinner_9.png" onclick="troca(9)">
+        <img class="identity" src="assets/Cards/Sinner_10.png" onclick="troca(10)">
+        <img class="identity" src="assets/Cards/Sinner_11.webp" onclick="troca(11)">
+        <img class="identity" src="assets/Cards/Sinner_13.png" onclick="troca(12)">
       </div>
     </section>
   </main>
 
-</body>
 
+  <section class="character-profile" id="character-profile" hidden>
+    <button class="profile-back" onclick="fecharPersonagem()">
+      <img src="assets/arrow-left.svg" alt="←">
+      Voltar
+    </button>
+    <img id="char-img" alt="">
+    <div class="profile-text">
+      <h2 id="char-name"></h2>
+      <p id="char-desc"></p>
+    </div>
+  </section>
+</body>
 </html>

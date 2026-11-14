@@ -249,3 +249,7 @@
   cursor: pointer;  
   animation: pendulum 2s ease-in-out infinite alternate;
 }
+
+.character-profile[hidden] { 
+  display: none;
+}
