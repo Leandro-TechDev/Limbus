@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/books.js"></script>
+  <script src="js/sessao.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style/books.css">
+
+  <title>Dashboard</title>
+</head>
+
+<body onload="validarSessao()">
+  <main class="site">
+    <div class="user-area">
+      <img src="../assets/Limbus_logo_feather.png" alt="" width="100px">
+      <div class="user-btn">
+        Home
+      </div>
+      <div class="user-btn">
+        Visão Geral
+      </div>
+      <div class="user-btn">
+        Livros
+      </div>
+      <div class="user-btn">
+        Personagens
+      </div>
+
+      Do not reason with the city.
+
+
+    </div>
+    <div class="dashboard-area">
+      <span class="dash-welcome">
+        Avaliar os Livros
+      </span>
+      <div class="kpi-area">
+
+        <div class="kpi-card">
+          <div class="kpi-title">
+            Livros Avaliados
+          </div>
+          <div class="kpi-body">
+            <span id="kpi-read">{AVALIADOS}</span> de 13
+          </div>
+          <div class="kpi-graph">
+            <div class="graph-fill" id="graph-bar"></div>
+          </div>
+          <p class="graph-percent" id="graph-percent"></p>
+        </div>
+
+        <div class="kpi-card">
+          <div id="kpi-structure">
+            <div>
+              <div class="kpi-title">
+                Média das notas
+              </div>
+              <div id="kpi-body">
+                <span id="kpi-eval">4.2</span>
+                <span id="kpi-limit">/5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-title">
+            Livros Lidos
+          </div>
+          <div class="kpi-body">
+            <span id="kpi-read">{LIDOS}</span> de 13
+          </div>
+          <div class="kpi-graph">
+            <div class="graph-fill" id="graph-bar"></div>
+          </div>
+          <p class="graph-percent" id="graph-percent"></p>
+        </div>
+
+      </div>
+      <div id="grid">
+        <button class="grid-card" onclick="livroInfo(); dlg.showModal()">
+          <div class="cover">
+            <span class="title">Crime e castigo</span>
+            <span class="author">Fiódor Dostoiévski</span>
+          </div>
+          <div class="stars">
+            ★★★★★
+          </div>
+        </button>
+      </div>
+    </div>
+  </main>
+  <dialog id="dlg">
+    <button id="x" class="close" onclick="dlg.close()">x</button>
+    <h2 id="title"></h2>
+    <p id="sub"></p>
+    <div class="dlg-note">
+      Sua nota
+      <div class="dlg-rating">
+        <span id="dlg-stars">
+          <span class="dlg-star">★</span>
+          <span class="dlg-star">★</span>
+          <span class="dlg-star">★</span>
+          <span class="dlg-star">★</span>
+          <span class="dlg-star">★</span>
+        </span>
+        <span class="num" id="nv">Sem nota</span>
+      </div>
+    </div>
+    <div class="field">
+      O que você achou do livro?
+      <textarea id="dlg-field" placeholder="Escreva sua opinião (opcional)"></textarea>
+    </div>
+    <button id="save">Salvar avaliação</button>
+  </dialog>
+</body>
+
+</html>

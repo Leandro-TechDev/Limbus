@@ -302,3 +302,8 @@ body{
   font-size: 0.9rem;
   color: var(--color-input-unfocus);
 }
+
+.stars {
+  color: var(--bg-surface);
+  font-size: 2rem;
+}
