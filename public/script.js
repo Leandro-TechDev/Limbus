@@ -27,7 +27,7 @@ function troca(id) {
 
 function carregaPersonagem(num) {
   fetch(`/personagens/sinner/${num}`, {
-    method: 'GET',
+    method: 'get',
     headers: {
       "Content-Type": "application/json"
     }
