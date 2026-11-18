@@ -1,13 +1,13 @@
 function entrar() {
-    let emailVar = userEmail.value;
-    let senhaVar = userPwd.value;
+    var emailVar = userEmail.value;
+    var senhaVar = userPwd.value;
 
     if (emailVar == "" || senhaVar == "") {
       return
     }
 
     fetch("/usuarios/autenticar", {
-      method: "POST",
+      method: "post",
       headers: {
         "Content-Type": "application/json"
       },
@@ -26,8 +26,7 @@ function entrar() {
           sessionStorage.NOME_USUARIO = user.nome;
           sessionStorage.ID_USUARIO = user.id;
 
-          setTimeout(function () {
-            window.location('../app/index.html')
+          setTimeout(function () {            window.location.href = '/app/index.html'
           }, 1000);
         });
       } else {

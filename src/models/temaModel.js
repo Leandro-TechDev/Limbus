@@ -1,6 +1,6 @@
 const database = require("../database/config")
 
-function buscarPersonagem(id) {
+function buscarTemas(id) {
   const instrucaoSql = `
     SELECT
     t.descricao as tema
@@ -15,5 +15,5 @@ function buscarPersonagem(id) {
 }
 
 module.exports = {
-  buscarPersonagem
+  buscarTemas
 }
