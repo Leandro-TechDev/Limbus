@@ -15,7 +15,7 @@
   <title>Dashboard</title>
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(); livroNotas();">
   <main class="site">
     <div class="user-area">
       <img src="../assets/Limbus_logo_feather.png" alt="" width="100px">
@@ -47,7 +47,7 @@
             Livros Avaliados
           </div>
           <div class="kpi-body">
-            <span id="kpi-read">{AVALIADOS}</span> de 13
+            <span id="kpi-aval"></span> de 12
           </div>
           <div class="kpi-graph">
             <div class="graph-fill" id="graph-bar"></div>
@@ -62,7 +62,7 @@
                 Média das notas
               </div>
               <div id="kpi-body">
-                <span id="kpi-eval">4.2</span>
+                <span id="kpi-medium"></span>
                 <span id="kpi-limit">/5</span>
               </div>
             </div>
@@ -74,7 +74,7 @@
             Livros Lidos
           </div>
           <div class="kpi-body">
-            <span id="kpi-read">{LIDOS}</span> de 13
+            <span id="kpi-read"></span> de 12
           </div>
           <div class="kpi-graph">
             <div class="graph-fill" id="graph-bar"></div>
@@ -83,20 +83,13 @@
         </div>
 
       </div>
-      <div id="grid">
-        <button class="grid-card" onclick="livroInfo(); dlg.showModal()">
-          <div class="cover">
-            <span class="title">Crime e castigo</span>
-            <span class="author">Fiódor Dostoiévski</span>
-          </div>
-          <div class="stars">
-            ★★★★★
-          </div>
-        </button>
-      </div>
+      <div id="grid"></div>
     </div>
   </main>
-  <dialog id="dlg">
+
+  <!-- Sessão do dialog -->
+
+  <dialog id="dlg" hidden>
     <button id="x" class="close" onclick="dlg.close()">x</button>
     <h2 id="title"></h2>
     <p id="sub"></p>
@@ -117,7 +110,9 @@
       O que você achou do livro?
       <textarea id="dlg-field" placeholder="Escreva sua opinião (opcional)"></textarea>
     </div>
-    <button id="save">Salvar avaliação</button>
+    <button id="save" onclick="dlg.close();">
+      Salvar avaliação
+    </button>
   </dialog>
 </body>
 
