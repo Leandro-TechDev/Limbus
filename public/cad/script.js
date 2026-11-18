@@ -3,8 +3,6 @@ function entrar (){
   const userMail = (userEmail.value).trim()
   const userSenha = (userPwd.value).trim();
 
-  // if(!verificarErro(userNome, userMail, userSenha)) return
-
   fetch("/usuarios/cadastrar", {
     method: "POST",
     headers: {
@@ -56,11 +54,7 @@ function verificarSenhaIgual() {
 function verificarNivel(senha) {
   let pontos = 0;
 
-  if (senha.length < 6){ 
-    document.getElementById("button-form").disabled = true
-    return
-  }
-  
+  if (senha.length < 6){document.getElementById("button-form").disabled = true; return}
   const temMaiuscula = /[A-Z]/.test(senha)
   const temSimbolo = /\w/.test(senha)
   const temNumero = /[0-9]/.test(senha)
