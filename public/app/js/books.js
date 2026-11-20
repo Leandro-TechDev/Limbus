@@ -1,4 +1,6 @@
 let Livros = []
+let livroAtual
+let notaSelecionada = 0
 
 function livroNotas() {
   var id = sessionStorage.ID_USUARIO;
@@ -12,13 +14,14 @@ function livroNotas() {
     res.json().then(data => {
       let bookCard = ''
       let aval = 0
+      let somaNota = 0
+
       Livros = data
       for (let i = 0; i < data.length; i++) {
         bookCard +=
           `
         <button class="grid-card"
-        onclick="livroInfo(${i}); 
-        dlg.showModal()" 
+        onclick="livroInfo(${(data[i].id)-1})" 
         >
           <div class="cover" 
           style="background-image: url('${data[i].urlCapa}')"
@@ -28,7 +31,10 @@ function livroNotas() {
           </div>
           <div class="stars">
         `
-        if (data[i].nota == undefined) aval++
+        if (data[i].nota != undefined) {
+          aval++
+          somaNota += data[i].nota
+        }
         for (let x = 0; x < 5; x++) {
           bookCard +=
             `<span style='${x < data[i].nota ? 'color:var(--text-secondary)' : ''}'>★</span>`
@@ -38,14 +44,14 @@ function livroNotas() {
       }
       document.getElementById('grid').innerHTML = bookCard;
       document.getElementById('kpi-aval').innerHTML = aval;
-      document.getElementById('kpi-medium').innerHTML = aval / data.length
-      document.getElementById('kpi-read').innerHTML = aval
+      document.getElementById('kpi-medium').innerHTML = aval ? (somaNota / aval).toFixed(1) : '-'
+      document.getElementById('kpi-read').innerHTML = data.length
     })
   })
 };
 
 function livroInfo(index) {
-  let livroAtual = Livros[index]
+  livroAtual = Livros[index]
   if (!livroAtual) return;
 
   document.getElementById('title').textContent = livroAtual.titulo;
@@ -84,5 +90,42 @@ function configEstrela() {
   container.addEventListener('mouseleave', function() {pintarEstrelas(notaSelecionada)})
 }
 
+function salvarAvaliacao() {
+  if (!livroAtual) return;
+  if (notaSelecionada < 1) {
+    alert('Escolha de 1 a 5 estrelas.');
+    return;
+  }
+
+  fetch('/livros/avaliacoes', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      usuarioId: sessionStorage.ID_USUARIO,
+      livroId: livroAtual.id,
+      nota: notaSelecionada,
+      descricao: document.getElementById('dlg-field').value
+    })
+  })
+    .then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function () {
+      livroAtual.nota = notaSelecionada;
+      livroAtual.descricao = document.getElementById('dlg-field').value;
+      livroNotas();
+    })
+    .catch(function (erro) {
+      console.error('Falha ao salvar avaliação:', erro);
+      alert('Não foi possível salvar sua avaliação.');
+    });
+}
+
+
 /* Para rodar só quando o html carrega */
 document.addEventListener('DOMContentLoaded', configEstrela);
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('save').addEventListener('click', salvarAvaliacao)
+})

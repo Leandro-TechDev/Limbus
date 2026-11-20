@@ -13,7 +13,16 @@ function buscarLivros(id) {
   return database.executar(instrucaoSql)
 }
 
+function avaliacao(uId, lId, nota, desc) {
+  const instrucaoSql = `
+  INSERT INTO usuario_livro (usuario_id, livro_id, nota, descricao)
+  VALUES (${uId}, ${lId}, ${nota}, '${desc}')
+  `
+  console.log(`Executando a instrução: ${instrucaoSql}`)
+  return database.executar(instrucaoSql)
+}
 
 module.exports = {
-  buscarLivros
+  buscarLivros,
+  avaliacao
 }

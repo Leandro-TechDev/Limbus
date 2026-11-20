@@ -90,6 +90,7 @@
   background: none;
   border: 0;
   font-size: 26px;
+  color:var(--color-paper)
 }
 
 #save {
