@@ -42,33 +42,48 @@ function entrar (){
 function verificarSenhaIgual() {
   const senha = (userPwd.value).trim()
   const senhaConfirma = (userPwdConfirm.value).trim()
+  let ex = document.getElementById("extra")
+  
   if (senha != senhaConfirma || senha === "") {
     document.getElementById("button-form").disabled = true
-    document.getElementById("extra").textContent = 'Diferente de senha'
+    ex.textContent = 'Diferente de senha'
+    ex.style.color = 'Red'
   } else{
     document.getElementById("button-form").disabled = false
-    document.getElementById("extra").textContent = ''
+    ex.textContent = ''
   }
 }
 
 function verificarNivel(senha) {
-  let pontos = 0;
-
-  if (senha.length < 6){document.getElementById("button-form").disabled = true; return}
+  const barras = [
+    document.getElementById('b1'),
+    document.getElementById('b2'),
+    document.getElementById('b3')
+  ]
+  const cores = ['#ff4d6d', '#ffd23f', '#06d6a0']
   const temMaiuscula = /[A-Z]/.test(senha)
-  const temSimbolo = /\w/.test(senha)
+  const temSimbolo = /[^A-Za-z0-9]/.test(senha)
   const temNumero = /[0-9]/.test(senha)
 
+  let nivel = 1
+  let pontos = 0;
   if (temMaiuscula) pontos+=10
   if (temNumero) pontos +=13
   if (temSimbolo) pontos +=20
 
-  if (senha.length < 12) {
-    pontos += 10
-  } else if (senha.length < 16){
-    pontos += 12
+  if (senha.length > 20) { pontos += 10 } 
+  else if (senha.length > 14) { pontos += 12 }
+    
+  if (senha.length >= 12) {
+    nivel = 2
+    if (pontos > 30) nivel = 3
   }
 
-  
-
+  for (let i = 0; i < barras.length; i++) {
+    if (i < nivel) {
+      barras[i].style.backgroundColor = cores[nivel - 1]
+    } else {
+      barras[i].style.backgroundColor = 'var(--color-input-unfocus)'
+    }
+  }
 }

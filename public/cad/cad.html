@@ -36,8 +36,13 @@
           <div class="user-Info">
             <label for="userPwd">Senha</label>
             <div class="senha">A sua senha precisa de um caracter especial, uma letra maíuscula e uma minúscula</div>
-            <input type="password" class="user-input" id="userPwd" placeholder='••••••' oninput="verificarSenhaIgual(); verificarNivel(userPwd.value)"
-            >
+            <input type="password" class="user-input" id="userPwd" placeholder='••••••' oninput="verificarSenhaIgual(); verificarNivel(userPwd.value)">
+            <span id="pwdState">
+              <div class="bar" id="b1"></div>
+              <div class="bar" id="b2"></div>
+              <div class="bar" id="b3"></div>
+            </span>
+            <div id="status"></div>
           </div>
           <div class="user-Info">
             <label for="userPwdConfirm">Confirmar senha</label>
@@ -48,7 +53,9 @@
         </div>
 
         <div id="form-footer">
-          <button onclick="entrar()" id="button-form">Entrar</button>
+          <button onclick="entrar()" id="button-form" disabled="true">
+            Entrar
+          </button>
           <div id="form-cad">
             <img src="../assets/rodya.png" alt="">
             <a href="../cad/cad.html" style="text-decoration: none;">
