@@ -24,6 +24,22 @@ function infoPersonagem(req, res) {
   )
 }
 
+function personagens(req, res){
+  var idUser = req.params.id
+  if (idUser == undefined) { return res.status(404).send('Id inexistente') }
+
+  personagemModel.buscarPersonagens(idUser).then(function (dados) {
+    console.log(`Resultados: ${JSON.stringify(dados)}`)
+
+    if (dados.length > 0) {
+      res.status(200).json(dados)
+    } else {
+      res.status(403).send('Algum personagem não foi encontrado!')
+    }
+  })
+}
+
 module.exports = {
-  infoPersonagem
+  infoPersonagem,
+  personagens
 }

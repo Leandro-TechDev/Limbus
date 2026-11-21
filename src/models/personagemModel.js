@@ -13,7 +13,23 @@ function buscarPersonagem(id) {
   return database.executar(instrucaoSql)
 }
 
+function buscarPersonagens(idUser) {
+  const instrucaoSql = `
+    SELECT
+      p.id, p.nome, p.descricaoLivro,
+      up.nota, up.curiosidade,
+      l.titulo
+    from personagem p LEFT JOIN livro l
+      ON l.id = p.livro_id
+    LEFT JOIN usuario_personagem up
+      ON p.id = up.personagem_id
+      AND usuario_id = ${idUser};
+  `
+  console.log(`Executando a instrução: ${instrucaoSql}`);
+  return database.executar(instrucaoSql)
+}
 
 module.exports = {
-  buscarPersonagem
+  buscarPersonagem,
+  buscarPersonagens
 }
