@@ -7,27 +7,28 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="style.css">
   <script src="js/sessao.js"></script>
+  <script src="js/index.js"></script>
 
   <title>Dashboard</title>
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(); livroNotas()">
   <main class="site">
     <div class="user-area">
-      <img src="../assets/Limbus_logo_feather.png" alt="" width="100px">
-      <div class="user-btn">
-        Home
-      </div>
-      <div class="user-btn">
-        Visão Geral
-      </div>
-      <div class="user-btn">
-        <a href="books.html">
+      <img src="../assets/Limbus_logo_feather.png" alt="Logo Limbus" width="100px">
+      <div id="btn-area">
+        <div class="user-btn active">
+          Home
+        </div>
+        <div class="user-btn inactive" onclick="window.location = 'books.html'">
+          Visão Geral
+        </div>
+        <div class="user-btn inactive" onclick="window.location = 'books.html'">
           Livros
-        </a>
-      </div>
-      <div class="user-btn">
-        Personagens
+        </div>
+        <div class="user-btn inactive">
+          Personagens
+        </div>
       </div>
 
       Do not reason with the city.
@@ -115,48 +116,11 @@
 
         <div class="my-books">
           <div id="book-section">
-            <span class="graph-title">Livros lidos</span>
-            <div class="book-grid">
-              <div class="book-card">
-                <img src="https://fl-storage.bookinfometadados.com.br/uploads/book/first_cover/9788501923141.jpg" alt=""
-                  class="book-img">
-                <div class="book-card-text">
-                  <span class="book-title">{BOOK1}</span>
-                  <span class="book-author">{AUTOR1}</span>
-                  <span class="book-rating">★ {nota}</span>
-                </div>
-              </div>
+            <span class="graph-title">
+              Seu top 5 livros
+            </span>
 
-              <div class="book-card">
-                <img src="https://fl-storage.bookinfometadados.com.br/uploads/book/first_cover/9788501923141.jpg" alt=""
-                  class="book-img">
-                <div class="book-card-text">
-                  <span class="book-title">{BOOK1}</span>
-                  <span class="book-author">{AUTOR1}</span>
-                  <span class="book-rating">★ {nota}</span>
-                </div>
-              </div>
-
-              <div class="book-card">
-                <img src="https://fl-storage.bookinfometadados.com.br/uploads/book/first_cover/9788501923141.jpg" alt=""
-                  class="book-img">
-                <div class="book-card-text">
-                  <span class="book-title">{BOOK1}</span>
-                  <span class="book-author">{AUTOR1}</span>
-                  <span class="book-rating">★ {nota}</span>
-                </div>
-              </div>
-
-              <div class="book-card">
-                <img src="https://fl-storage.bookinfometadados.com.br/uploads/book/first_cover/9788501923141.jpg" alt=""
-                  class="book-img">
-                <div class="book-card-text">
-                  <span class="book-title">{BOOK1}</span>
-                  <span class="book-author">{AUTOR1}</span>
-                  <span class="book-rating">★ {nota}</span>
-                </div>
-              </div>
-            </div>
+            <div id="book-grid"></div>
           </div>
 
           <div class="chart-box" id="dough-graph">
@@ -168,11 +132,6 @@
     </div>
   </main>
   <script>
-
-    /*
-      Doughnut
-    */
-
     const data = {
       labels: ['Lido', 'Não lido'],
       datasets: [

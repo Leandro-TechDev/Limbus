@@ -12,7 +12,7 @@
   --font-big-shoulders: 'Big Shoulders';
   --font-tagmarker: 'Tagmarker';
 
-  --color-ink-900: #14110d;
+  --color-ink-900: rgb(20, 17, 13);
   --color-ink-800: #1f1c18;
   --color-ink-600: #4a453e;
   --color-ink-500: #6b655c;
@@ -71,16 +71,55 @@ body{
 
 
 .user-area {
+  color: var(--color-paper);
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
   width: 13vw;
-  background-color: var(--color-ink-900);
+  background-color: rgba(20, 17, 13, 0.55);
+  backdrop-filter: blur(20px);
 }
 
 .user-area img{
-  width: 15rem;
+  width: auto;
+}
+
+#btn-area {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.user-btn {
+  box-sizing: border-box;
+  font-size: x-large;
+  padding: .5rem 1rem;
+  height: 3rem;
+  border-radius: 0.725rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+.active {
+  cursor: default;
+  background-color: rgba(243, 241, 241, 0.1);
+  border-top: #7c6d674f 1px solid;
+  border-bottom: #0c0a09af 1px solid;
+}
+
+.inactive {
+  border-top: #7c6d673f 1px solid;
+  border-bottom: #0c0a09af 1px solid;
+}
+
+.inactive:hover{
+  background-color: rgba(243, 241, 241, 0.1);
+  opacity: 1;
 }
 
 .dashboard-area {
@@ -303,7 +342,7 @@ body{
   color: var(--color-input-unfocus);
 }
 
-.stars {
-  color: var(--bg-surface);
-  font-size: 2rem;
+.book-rating {
+  font-size: 1.5rem;
+  color: var(--color-gold-500);
 }
