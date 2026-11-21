@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/chara.js"></script>
+  <script src="js/sessao.js"></script>
+
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/chara.css">
+
+  <title>Dashboard</title>
+</head>
+
+<body onload="validarSessao(); personagensBuscar();">
+  <main class="site">
+    <div class="user-area">
+      <img src="../assets/Limbus_logo_feather.png" alt="" width="100px">
+      <div class="user-btn inactive" onclick="window.location = 'index.html'">
+        Home
+      </div>
+      <div class="user-btn inactive" onclick="window.location = 'general.html'">
+        Visão Geral
+      </div>
+      <div class="user-btn inactive" onclick="window.location = 'books.html'">
+        Livros
+      </div>
+      <div class="user-btn active">
+        Personagens
+      </div>
+
+      Do not reason with the city.
+
+
+    </div>
+    <div class="dashboard-area">
+      <span class="dash-welcome">
+        Avaliar os Livros
+      </span>
+      <div class="kpi-area">
+
+        <div class="kpi-card">
+          <div class="kpi-title">
+            Livros Avaliados
+          </div>
+          <div class="kpi-body">
+            <span id="kpi-aval"></span> de 12
+          </div>
+          <div class="kpi-graph">
+            <div class="graph-fill" id="graph-bar"></div>
+          </div>
+          <p class="graph-percent" id="graph-percent"></p>
+        </div>
+
+        <div class="kpi-card">
+          <div id="kpi-structure">
+            <div>
+              <div class="kpi-title">
+                Média das notas
+              </div>
+              <div id="kpi-body">
+                <span id="kpi-medium"></span>
+                <span id="kpi-limit">/5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-title">
+            Livros Lidos
+          </div>
+          <div class="kpi-body">
+            <span id="kpi-read"></span> de 12
+          </div>
+          <div class="kpi-graph">
+            <div class="graph-fill" id="graph-bar"></div>
+          </div>
+          <p class="graph-percent" id="graph-percent"></p>
+        </div>
+
+      </div>
+      <div id="grid"></div>
+    </div>
+  </main>
+
+  <!-- Sessão do dialog -->
+
+  <dialog id="dlg" hidden>
+    <button id="x" class="close" onclick="dlg.close()">x</button>
+    <h2 id="title"></h2>
+    <p id="sub"></p>
+    <div class="dlg-note">
+      Sua nota
+      <div class="dlg-rating">
+        <div id="dlg-nota">
+          Nota do personagem
+          <span class="dlg-stars">
+            <span class="dlg-star">★</span>
+            <span class="dlg-star">★</span>
+            <span class="dlg-star">★</span>
+            <span class="dlg-star">★</span>
+            <span class="dlg-star">★</span>
+          </span>
+          <span class="num nv">Sem nota</span>
+        </div>
+        
+        <div id="dlg-curiosidade">
+          Nota de curiosidade
+          <span class="dlg-stars">
+            <span class="dlg-star">★</span>
+            <span class="dlg-star">★</span>
+            <span class="dlg-star">★</span>
+            <span class="dlg-star">★</span>
+            <span class="dlg-star">★</span>
+          </span>
+          <span class="num nv">Sem nota</span>
+        </div>
+      </div>
+    </div>
+    <button id="save" onclick="dlg.close();">
+      Salvar avaliação
+    </button>
+  </dialog>
+</body>
+
+</html>
