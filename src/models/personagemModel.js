@@ -29,7 +29,17 @@ function buscarPersonagens(idUser) {
   return database.executar(instrucaoSql)
 }
 
+function avaliacao(uId, pId, nota, curio) {
+  const instrucaoSql = `
+  INSERT INTO usuario_personagem (usuario_id, personagem_id, nota, curiosidade)
+  VALUES (${uId}, ${pId}, ${nota}, '${curio}')
+  `
+  console.log(`Executando a instrução: ${instrucaoSql}`)
+  return database.executar(instrucaoSql)
+}
+
 module.exports = {
   buscarPersonagem,
-  buscarPersonagens
+  buscarPersonagens,
+  avaliacao
 }

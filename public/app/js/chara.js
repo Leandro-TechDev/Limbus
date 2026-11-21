@@ -123,6 +123,37 @@ function configCuriosidade() {
   })
 }
 
+function salvarAvaliacao() {
+  if (!personagemAtual) return;
+  if (notaCuriosidade < 1 && notaGeral < 1) {
+    alert('Escolha de 1 a 5 estrelas.');
+    return;
+  }
+
+  fetch('/personagens/avaliacoes', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      usuarioId: sessionStorage.ID_USUARIO,
+      personagemId: personagemAtual.id,
+      nota: notaGeral,
+      curiosidade: notaCuriosidade
+    })
+  })
+    .then(function (res) {
+      console.log(res)
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function () {
+      personagensBuscar()
+    })
+    .catch(function (erro) {
+      console.error('Falha ao salvar avaliação:', erro);
+      alert('Não foi possível salvar sua avaliação.');
+    });
+}
+
 /* Para rodar só quando o html carrega */
 document.addEventListener('DOMContentLoaded', configGeral)
 document.addEventListener('DOMContentLoaded', configCuriosidade)

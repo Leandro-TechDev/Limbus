@@ -11,4 +11,8 @@ router.get("/:id", function(req, res){
   personagemController.personagens(req, res)
 })
 
+router.post("/avaliacoes", function (req, res) {
+  personagemController.avaliacao(req, res)
+})
+
 module.exports = router;

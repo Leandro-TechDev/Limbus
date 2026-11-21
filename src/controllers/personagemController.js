@@ -39,7 +39,36 @@ function personagens(req, res){
   })
 }
 
+function avaliacao(req, res) {
+  let userId = req.body.usuarioId;
+  let personagemId = req.body.personagemId;
+  let nota = req.body.nota;
+  let curio = req.body.curiosidade;
+
+
+  if (userId == '' || userId == undefined) {
+    res.status(401).send('Nenhum usuário identifiicado')
+  } else if (personagemId == '' || personagemId == undefined) {
+    res.status(401).send('Nenhum livro escolhido')
+  } else if (nota == '' || nota == undefined) {
+    res.status(401).send('Nenhuma nota enviada')
+  } else if(curio == '' || curio == undefined){
+    res.status(401).send('Nenhuma nota de curiosidade enviada')
+  } else {
+    personagemModel.avaliacao(userId, personagemId, nota, curio).then(
+      function (resultado) {
+        console.log(`Resultados: ${JSON.stringify(resultado)}`)
+
+        if (resultado.affectedRows === 1) { res.status(200).json(resultado) } 
+        else { res.status(400).send('Nenhum insert realizado!') }
+      }
+    )
+  }
+  
+}
+
 module.exports = {
   infoPersonagem,
-  personagens
+  personagens,
+  avaliacao
 }
