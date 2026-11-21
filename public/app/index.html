@@ -125,6 +125,10 @@
 
           <div class="chart-box" id="dough-graph">
             <canvas id="dough-books"></canvas>
+            <div class="donut-center">
+              <strong id="donut-percent">0%</strong>
+              <span>Dos livros<br>lidos</span>
+            </div>
           </div>
 
         </div>
@@ -132,34 +136,6 @@
     </div>
   </main>
   <script>
-    const data = {
-      labels: ['Lido', 'Não lido'],
-      datasets: [
-        {
-          label: 'Leitura',
-          data: [6, 7],
-          backgroundColor: ['#9b0000', '#000000'],
-          borderWidth: 0,
-          borderRadius: 0,
-        }
-      ]
-    };
-
-    const dough = new Chart(
-      document.getElementById('dough-books').getContext('2d'),
-      {
-        type: 'doughnut',
-        data: data,
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: '' }
-          }
-        }
-      }
-    );
-
     /*
       Bar section
     */
