@@ -3,6 +3,7 @@ let doughChart
 function kpiCall() {
   livroNotas()
   personagensBuscar()
+  temasRecorrentesBuscar()
 }
 
 
@@ -85,14 +86,30 @@ function personagensBuscar() {
 
     res.json().then(data => {
       data.sort((a, b) => b.curiosidade - a.curiosidade)
-      console.log(data)
-      console.log('Dados 0: ', data[0])
 
       document.getElementById('kpi-sinner').innerHTML = data[0].nome
       document.getElementById('kpi-curio').innerHTML = `${data[0].curiosidade} de curiosidade`
-
       document.getElementById('sinnerCover').src = `/assets/Cards/Sinner_${data[0].id}.webp`
+    })
+  })
+}
 
+function temasRecorrentesBuscar(){
+  var id = sessionStorage.ID_USUARIO;
+  fetch(`/temas/recorrentes/${id}`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" }
+  }).then(res => {
+    console.log(res)
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+
+    res.json().then(data => {
+      data.sort((a, b) => b.curiosidade - a.curiosidade)
+      console.log(data)
+
+      document.getElementById('frstTheme').innerHTML = data[0].descricao
+      document.getElementById('scndTheme').innerHTML = data[1].descricao
+      document.getElementById('thrdTheme').innerHTML = data[2].descricao
     })
   })
 }
