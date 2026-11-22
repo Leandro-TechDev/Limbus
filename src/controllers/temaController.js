@@ -24,6 +24,31 @@ function temaPersonagem(req, res) {
   )
 }
 
+function temasRecorrentesPorUsuario(req, res){
+  var userId = req.params.id;
+  temaModel.buscarTemasRecorrentes(userId).then(
+    function (resultado){
+      console.log('Temas recorrentes', resultado)
+      
+      if (resultado.length >= 1) {
+        console.log(resultado);
+        res.status(200).json(resultado)
+      } else if (resultado.length == 0) {
+        res.status(403).json(
+          data[
+            {descricao: '----'},
+            {descricao: '----'},
+            {descricao: '----'}
+          ]
+        );
+      } else {
+        res.status(403).send("Error");
+      }
+    }
+  )
+}
+
 module.exports = {
-  temaPersonagem
+  temaPersonagem,
+  temasRecorrentesPorUsuario
 }

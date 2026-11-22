@@ -14,6 +14,19 @@ function buscarTemas(id) {
   return database.executar(instrucaoSql)
 }
 
+
+function buscarTemasRecorrentes(id) {
+  const instrucaoSql = `
+    SELECT 
+      usuario_id, descricao, pontuacao_total
+    FROM temasRecorrentes 
+    WHERE usuario_id = ${id};
+  `
+  console.log(`Executando a instrução: ${instrucaoSql}`);
+  return database.executar(instrucaoSql)
+}
+
 module.exports = {
-  buscarTemas
+  buscarTemas,
+  buscarTemasRecorrentes
 }
