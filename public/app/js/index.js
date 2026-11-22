@@ -1,9 +1,11 @@
 let doughChart
+let personagensDados
+let aval 
 
 function kpiCall() {
-  livroNotas()
-  personagensBuscar()
-  temasRecorrentesBuscar()
+  livroNotas();
+  personagensBuscar();
+  temasRecorrentesBuscar();
 }
 
 
@@ -18,21 +20,22 @@ function livroNotas() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     res.json().then(data => {
       let bookCard = ''
-      Livros = data
-      let aval = 0
+      aval = 0
 
       data.sort((a, b) => b.nota - a.nota)
-      for (let i = 0; i < 5; i++) {
-        bookCard += `
-        <div class="book-card">
-          <img class="book-img" src="${data[i].urlCapa}">
-          <div class="book-card-text">
-            <span class="book-title">${data[i].titulo}</span>
-            <span class="book-author">${data[i].autor}</span>
-            <span class="book-rating">★${data[i].nota ? data[i].nota : '-'}/5</span>
+      for (let i = 0; i < data.length; i++) {
+        if (i < 5) {
+          bookCard += `
+          <div class="book-card">
+            <img class="book-img" src="${data[i].urlCapa}">
+            <div class="book-card-text">
+              <span class="book-title">${data[i].titulo}</span>
+              <span class="book-author">${data[i].autor}</span>
+              <span class="book-rating">★${data[i].nota ? data[i].nota : '-'}/5</span>
+            </div>
           </div>
-        </div>
-        `
+          `
+        }
         if (data[i].nota != undefined) {
           aval++
         }
@@ -69,9 +72,20 @@ function livroNotas() {
         })
 
       document.getElementById('book-grid').innerHTML = bookCard;
+
+      pintarBarra(pct)
+      function pintarBarra(preenchimento) {
+        const barra = document.getElementById('graph-bar fill')
+
+        barra.style.background = `linear-gradient(90deg, #961814 ${preenchimento}%, transparent ${preenchimento}% )`
+        barra.style.height = '100%'
+      }
+
       document.getElementById('kpi-read').innerHTML = aval;
+      
     })
   })
+
 };
 
 function personagensBuscar() {
@@ -86,6 +100,8 @@ function personagensBuscar() {
 
     res.json().then(data => {
       data.sort((a, b) => b.curiosidade - a.curiosidade)
+      personagensDados = data
+      notaMedia()
 
       document.getElementById('kpi-sinner').innerHTML = data[0].nome
       document.getElementById('kpi-curio').innerHTML = `${data[0].curiosidade} de curiosidade`
@@ -112,4 +128,26 @@ function temasRecorrentesBuscar(){
       document.getElementById('thrdTheme').innerHTML = data[2].descricao
     })
   })
+}
+
+function notaMedia() {
+  let notaTotal = 0
+  for (let i = 0; i < personagensDados.length; i++) {
+    notaTotal+=personagensDados[i].nota
+  }
+  notaTotal/=personagensDados.length
+  document.getElementById('kpi-eval').innerHTML = notaTotal.toFixed(1)
+
+  pintar(notaTotal)
+  function pintar(nota) {
+    const estrelas = document.querySelectorAll(".kpi-star .star")
+
+    estrelas.forEach((e, i) => {
+      const preenchimento = Math.min(Math.max( nota - i, 0 ), 1) * 100
+
+      e.style.background = `linear-gradient(90deg, var(--color-gold-500) ${preenchimento}%, var(--color-ink-600) ${preenchimento}%)
+      `
+      e.style.backgroundClip = 'text'
+    })
+  }
 }

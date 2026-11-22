@@ -188,7 +188,7 @@ body{
   overflow: hidden;  
 }
 
-.graph-fill {
+#fill {
   height: 100%;
   background: #961814;
   border-radius: 12px;
@@ -253,7 +253,7 @@ body{
 
 .kpi-star {
   font-size: xxx-large;
-  color: var(--color-gold-500);
+  color: transparent;
 }
 
 /*
