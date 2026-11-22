@@ -1,5 +1,11 @@
 let doughChart
 
+function kpiCall() {
+  livroNotas()
+  personagensBuscar()
+}
+
+
 function livroNotas() {
   var id = sessionStorage.ID_USUARIO;
   fetch(`/livros/${id}`, {
@@ -15,8 +21,6 @@ function livroNotas() {
       let aval = 0
 
       data.sort((a, b) => b.nota - a.nota)
-
-      console.log('Sorteado: ', data)
       for (let i = 0; i < 5; i++) {
         bookCard += `
         <div class="book-card">
@@ -68,3 +72,27 @@ function livroNotas() {
     })
   })
 };
+
+function personagensBuscar() {
+  var id = sessionStorage.ID_USUARIO;
+  fetch(`/personagens/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(res => {
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+
+    res.json().then(data => {
+      data.sort((a, b) => b.curiosidade - a.curiosidade)
+      console.log(data)
+      console.log('Dados 0: ', data[0])
+
+      document.getElementById('kpi-sinner').innerHTML = data[0].nome
+      document.getElementById('kpi-curio').innerHTML = `${data[0].curiosidade} de curiosidade`
+
+      document.getElementById('sinnerCover').src = `/assets/Cards/Sinner_${data[0].id}.webp`
+
+    })
+  })
+}

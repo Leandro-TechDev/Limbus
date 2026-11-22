@@ -214,6 +214,15 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+
+  #kpi-sinner {
+    font-size: 2rem;
+  }
+
+  #kpi-curio {
+    font-size: 1.4rem;
+  }
+
 }
 
 .sinner-archive {
