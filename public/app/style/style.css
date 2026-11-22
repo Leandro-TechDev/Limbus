@@ -56,10 +56,12 @@
 }
 
 body{
-  background-color: var(--color-ink-800);
+  background-color: var(--color-night-950);
   width: 100%;
   height: 100vh;
   color: var(--title-text);
+  font-family: var(--font-big-shoulders), sans-serif;
+  overflow: hidden;
 }
 
 .site {
@@ -67,6 +69,11 @@ body{
   flex-direction: row;
   height: 100vh;
   width: 100vw;
+  background-image: url("/assets/bg-dash.png");
+  background-position: center calc(100% + 200px);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 
@@ -81,6 +88,7 @@ body{
   width: 13vw;
   background-color: rgba(20, 17, 13, 0.55);
   backdrop-filter: blur(20px);
+  border-right: 1px solid var(--color-gold-500);
 }
 
 .user-area img{
@@ -96,6 +104,8 @@ body{
 .user-btn {
   box-sizing: border-box;
   font-size: x-large;
+  font-family: var(--font-big-shoulders), sans-serif;
+  font-weight: 700;
   padding: .5rem 1rem;
   height: 3rem;
   border-radius: 0.725rem;
@@ -103,13 +113,21 @@ body{
   display: flex;
   justify-content: center;
   backdrop-filter: blur(8px);
+  background-color: rgba(20, 17, 13, 0.6);
+  border: 1px solid var(--color-crimson-900);
+  border-left: 5px solid var(--color-crimson-700);
+  color: var(--color-paper);
 }
 
 .active {
   cursor: default;
-  background-color: rgba(243, 241, 241, 0.1);
-  border-top: #7c6d674f 1px solid;
-  border-bottom: #0c0a09af 1px solid;
+  color: var(--text-secondary);
+  background: linear-gradient(
+    var(--color-crimson-800), 
+    var(--color-crimson-950)
+  );
+  border-color: var(--color-gold-500);
+  box-shadow: 0 0 12px color-mix(in oklch, var(--color-gold-500) 45%, transparent);
 }
 
 .inactive {
@@ -118,8 +136,10 @@ body{
 }
 
 .inactive:hover{
-  background-color: rgba(243, 241, 241, 0.1);
+  background-color: var(--color-crimson-950);
+  color: var(--color-gold-500);
   opacity: 1;
+  border-left-color: var(--color-gold-500);
 }
 
 .dashboard-area {
@@ -136,6 +156,15 @@ body{
   margin-top: 1rem;
 }
 
+#user-footer {
+  font-family: var(--font-big-shoulders), sans-serif;
+  color: var(--color-gold-500);
+  letter-spacing: 0.8px;
+  font-weight: 700;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
 /*
   KPI Area
 */
@@ -144,22 +173,30 @@ body{
   color: var(--text-secondary);
   display: flex;
   flex-direction: row;
-
 }
 
 .kpi-card {
+  position: relative;
   padding: 1rem;
   margin-left: 20px;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-ink-900);
-  border-radius: 24px;
+  background-color: color-mix(in srgb, var(--color-ink-900) 80%, transparent);
+  border: 1px solid var(--color-gold-500);
+  border-radius: 4px;
   width: 18vw;
   height: 15vh;
 }
 
 .kpi-title {
+  font-family: var(--font-big-shoulders), sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
   font-size: x-large;
+  color: var(--title-text);
+  padding-bottom: 0.1rem;
+  border-bottom: 0.5px solid var(--color-crimson-700);
+  text-align: center;
 }
 
 #kpi-box {
@@ -169,7 +206,16 @@ body{
 }
 
 .kpi-body {
+  margin-top: 10px;
   font-size: xx-large;
+  text-align: center;
+  #kpi-read {
+    font-size: 3rem;
+  }
+}
+
+#kpi-body {
+  text-align: center;
 }
 
 .kpi-bar {
@@ -183,7 +229,7 @@ body{
 .kpi-graph{
   width: 100%;
   height: 36px;
-  border: 2px solid #c5cad3;
+  border: 2px solid var(--color-gold-300);
   border-radius: 14px;
   overflow: hidden;  
 }
@@ -214,9 +260,10 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  text-align: center;
 
   #kpi-sinner {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   #kpi-curio {
@@ -241,8 +288,9 @@ body{
   font-size: x-large;
   margin-bottom: 1rem;
   width: 100%;
-  background-color: var(--color-crimson-700);
+  background-color: color-mix(in srgb, var(--color-crimson-700) 70%, transparent);
   border: var(--color-crimson-400) 1px solid;
+  border-left: 5px var(--color-gold-400) solid;
   border-radius: 10rem;
   text-align: center;
 }
@@ -252,6 +300,7 @@ body{
 }
 
 .kpi-star {
+  text-align: center;
   font-size: xxx-large;
   color: transparent;
 }
@@ -267,11 +316,20 @@ body{
   margin-left: 10px;
 }
 
+#graph {
+  display: flex;
+  flex-direction: column;
+}
+
 .my-eval {
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-page);
+  background-color: color-mix(in srgb, var(--bg-page) 70%, transparent 30%);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-gold-500);
+
   width: 35vw;
+  height: 25vh;
   padding: 2rem 4rem 4rem 4rem;
   margin-top: 2rem;
   margin-left: 1rem;
@@ -282,12 +340,16 @@ body{
 .my-books {
   display: flex;
   flex-direction: row;
-  background-color: var(--bg-page);
+  background-color: color-mix(in srgb, var(--bg-page) 70%, transparent 30%);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-gold-500);
+
   width: 34vw;
   padding: 2rem 4rem 4rem 4rem;
   margin-top: 2rem;
   margin-left: 1rem;
   border-radius: 0.75rem;
+  height: 62vh;
 }
 
 .chart-box {
@@ -328,6 +390,7 @@ body{
 }
 
 .graph-title{
+  font-family: var(--font-big-shoulders), sans-serif;
   color: var(--text-secondary);
   font-size: xx-large;
 }
@@ -346,6 +409,11 @@ body{
   background-color: var(--bg-surface);
   border-radius: 0.5rem;
   margin-top: 1rem;
+  letter-spacing: 1px;
+  border: 1px solid var(--color-crimson-900);
+  border-left: 5px solid var(--color-crimson-700);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 
   .book-card-text{
     display: flex;
@@ -380,3 +448,14 @@ body{
   }
 }
 
+.book-card { position: relative; counter-increment: rank; }
+.book-card::before {
+  content: counter(rank);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 0.4rem;
+  background: var(--color-crimson-700);
+  color: var(--text-secondary);
+  font-weight: 700;
+}

@@ -31,8 +31,10 @@
         </div>
       </div>
 
-      Do not reason with the city.
-
+      <span id="user-footer">
+        Encare o pecado<br>
+        Salve o E.G.O
+      </span>
 
     </div>
     <div class="dashboard-area">
@@ -46,7 +48,7 @@
             Livros Lidos
           </div>
           <div class="kpi-body">
-            <span id="kpi-read">{LIDOS}</span> de 13
+            <span id="kpi-read">{LIDOS}</span> de 13 livros lidos
           </div>
           <div class="kpi-graph">
             <div id="graph-bar fill"></div>
@@ -65,8 +67,7 @@
                 <span id="kpi-curio">{RANKING}</span>
               </div>
             </div>
-            <img src="../assets/Cards/Sinner_1.webp" alt="" 
-            id="sinnerCover" class="sinner-archive">
+            <img src="../assets/Cards/Sinner_1.webp" alt="" id="sinnerCover" class="sinner-archive">
           </div>
         </div>
 
@@ -101,18 +102,21 @@
       </div>
 
       <div class="graph-area">
-        <div class="my-eval">
-          <span class="graph-title">Minhas Avaliações</span>
-          <span class="graph-sub">Personagens</span>
-          <div class="chart-box">
-            <canvas id="eval-characters"></canvas>
+        <div id="graphs">
+          <div class="my-eval">
+            <span class="graph-title">Minhas Avaliações</span>
+            <span class="graph-sub">Personagens</span>
+            <div class="chart-box">
+              <canvas id="eval-characters"></canvas>
+            </div>
           </div>
 
-          <span class="graph-sub">Livros</span>
-          <div class="chart-box">
-            <canvas id="eval-books"></canvas>
+          <div class="my-eval">
+            <span class="graph-sub">Livros</span>
+            <div class="chart-box">
+              <canvas id="eval-books"></canvas>
+            </div>
           </div>
-
         </div>
 
         <div class="my-books">
