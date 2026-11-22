@@ -15,13 +15,19 @@ function personagensBuscar() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
 
     res.json().then(data => {
+      let aval = 0
       let charaCard = ''
       personagens = data
 
       for (let i = 0; i < data.length; i++) {
+        let semNota = true
+        if (data[i].nota != undefined) {
+          semNota = false
+          aval++
+        }
         charaCard +=
           `
-        <button class="grid-card"
+        <button class="grid-card ${semNota ? 'sem-nota' : ''}"
         onclick="charaInfo(${data[i].id - 1})" 
         >
           <div class="grid-body">
@@ -37,9 +43,10 @@ function personagensBuscar() {
           charaCard +=
             `<span style='${x < data[i].nota ? 'color:var(--text-secondary)' : ''}'>★</span>`
         }
-
         charaCard += `</div></button>`
       }
+
+      document.getElementById('dash-welcome').innerHTML = `Avaliar os personagens — ${aval} de ${data.length} avaliados`
 
       document.getElementById('grid').innerHTML = charaCard
 

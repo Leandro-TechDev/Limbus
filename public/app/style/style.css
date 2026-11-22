@@ -148,9 +148,10 @@ body{
 }
 
 .dash-welcome {
+  font-family: var(--font-big-shoulders), sans-serif;
   display: inline-block;
   color: var(--color-paper);
-  font-size: xx-large;
+  font-size: 3rem;
   margin-left: 2rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
