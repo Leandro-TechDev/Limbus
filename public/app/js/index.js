@@ -1,6 +1,6 @@
 let doughChart
 let personagensDados
-let aval 
+let aval
 
 function kpiCall() {
   livroNotas();
@@ -19,6 +19,8 @@ function livroNotas() {
   }).then(res => {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     res.json().then(data => {
+      let livrosTtl = []
+      let livrosNotas = []
       let bookCard = ''
       aval = 0
 
@@ -57,8 +59,7 @@ function livroNotas() {
         ]
       };
 
-      const dough = new Chart(
-        document.getElementById('dough-books').getContext('2d'),
+      new Chart(document.getElementById('dough-books').getContext('2d'),
         {
           type: 'doughnut',
           data: doughChart,
@@ -71,6 +72,39 @@ function livroNotas() {
           }
         })
 
+      data.forEach((a) => {
+        if (a.nota != undefined) {
+          livrosNotas.push(a.nota)
+          livrosTtl.push(a.titulo)
+        }
+      })
+
+      const dados = {
+        labels: livrosTtl,
+        datasets: [{
+          label: 'Nota',
+          data: livrosNotas,
+          backgroundColor: '#f1bf02',
+          borderColor: '#ffe27a',
+          borderWidth: 2,
+          borderRadius: 6,
+        }]
+      }
+
+      const opcoes = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: { min: 0, max: 5, ticks: { color: '#fff9e0', stepSize: 1 } },
+          x: { ticks: { color: '#fff9e0' } }
+        },
+        plugins: { legend: { display: false } }
+      }
+
+      new Chart(document.getElementById('eval-books').getContext('2d'),
+        { type: 'bar', data: dados, options: opcoes }
+      );
+
       document.getElementById('book-grid').innerHTML = bookCard;
 
       pintarBarra(pct)
@@ -82,7 +116,7 @@ function livroNotas() {
       }
 
       document.getElementById('kpi-read').innerHTML = aval;
-      
+
     })
   })
 
@@ -99,6 +133,9 @@ function personagensBuscar() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
 
     res.json().then(data => {
+      let notasVetor = []
+      let nomeVetor = []
+
       data.sort((a, b) => b.curiosidade - a.curiosidade)
       personagensDados = data
       notaMedia()
@@ -106,11 +143,49 @@ function personagensBuscar() {
       document.getElementById('kpi-sinner').innerHTML = data[0].nome
       document.getElementById('kpi-curio').innerHTML = `${data[0].curiosidade} de curiosidade`
       document.getElementById('sinnerCover').src = `/assets/Cards/Sinner_${data[0].id}.webp`
+
+      data.forEach((a) => {
+        if (a.nota != undefined) {
+          notasVetor.push(a.nota)
+          nomeVetor.push(a.nome)
+        }
+      })
+
+      const dados = {
+        labels: nomeVetor,
+        datasets: [{
+          label: 'Nota',
+          data: notasVetor,
+          backgroundColor: '#9b0000',
+          borderColor: '#ff6464',
+          borderWidth: 2,
+          borderRadius: 6,
+        }]
+      }
+
+      const opcoes = {
+        responsive: true, maintainAspectRatio: false,
+        scales: {
+          y: { min: 0, max: 5, ticks: { color: '#fff9e0', stepSize: 1 } },
+          x: { ticks: { color: '#fff9e0' } }
+        }, plugins: { legend: { display: false } }
+      }
+
+      new Chart(
+        document.getElementById('eval-characters').getContext('2d'),
+        {
+          type: 'bar',
+          data: dados,
+          options: opcoes
+        }
+      );
+
+
     })
   })
 }
 
-function temasRecorrentesBuscar(){
+function temasRecorrentesBuscar() {
   var id = sessionStorage.ID_USUARIO;
   fetch(`/temas/recorrentes/${id}`, {
     method: "GET",
@@ -133,9 +208,9 @@ function temasRecorrentesBuscar(){
 function notaMedia() {
   let notaTotal = 0
   for (let i = 0; i < personagensDados.length; i++) {
-    notaTotal+=personagensDados[i].nota
+    notaTotal += personagensDados[i].nota
   }
-  notaTotal/=personagensDados.length
+  notaTotal /= personagensDados.length
   document.getElementById('kpi-eval').innerHTML = notaTotal.toFixed(1)
 
   pintar(notaTotal)
@@ -143,7 +218,7 @@ function notaMedia() {
     const estrelas = document.querySelectorAll(".kpi-star .star")
 
     estrelas.forEach((e, i) => {
-      const preenchimento = Math.min(Math.max( nota - i, 0 ), 1) * 100
+      const preenchimento = Math.min(Math.max(nota - i, 0), 1) * 100
 
       e.style.background = `linear-gradient(90deg, var(--color-gold-500) ${preenchimento}%, var(--color-ink-600) ${preenchimento}%)
       `
