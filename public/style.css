@@ -122,20 +122,18 @@
 }
 
 .hero-video {
-  position: relative;
+  position: absolute;
   height: 100%;
   width: 100%;
   z-index: -1;
   margin-top: -3rem;
+  object-fit: cover;
+  object-position: center;
 }
 
 .hero-video-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-  margin-top: -3rem;
+  z-index: 1;
+  pointer-events: none;
 }
 
 /*
