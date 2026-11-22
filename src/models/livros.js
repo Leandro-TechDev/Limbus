@@ -16,7 +16,10 @@ function buscarLivros(id) {
 function avaliacao(uId, lId, nota, desc) {
   const instrucaoSql = `
   INSERT INTO usuario_livro (usuario_id, livro_id, nota, descricao)
-  VALUES (${uId}, ${lId}, ${nota}, '${desc}')
+  VALUES (${uId}, ${lId}, ${nota}, '${desc}') as novo
+   ON DUPLICATE KEY UPDATE
+     nota = novo.nota,
+     descricao = novo.descricao;
   `
   console.log(`Executando a instrução: ${instrucaoSql}`)
   return database.executar(instrucaoSql)

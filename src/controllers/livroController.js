@@ -34,7 +34,7 @@ function avaliacoes(req, res) {
         console.log(`\n Resultados encontrados: ${resultado.length}`)
         console.log(`Resultados: ${JSON.stringify(resultado)}`)
 
-        if (resultado.affectedRows === 1) { res.status(200).json(resultado) } 
+        if (resultado.affectedRows === 1 || resultado.affectedRows === 2) { res.status(200).json(resultado) } 
         else { res.status(400).send('Nenhum insert realizado!') }
       }
     )

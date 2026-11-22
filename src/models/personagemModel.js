@@ -32,7 +32,10 @@ function buscarPersonagens(idUser) {
 function avaliacao(uId, pId, nota, curio) {
   const instrucaoSql = `
   INSERT INTO usuario_personagem (usuario_id, personagem_id, nota, curiosidade)
-  VALUES (${uId}, ${pId}, ${nota}, '${curio}')
+  VALUES (${uId}, ${pId}, ${nota}, '${curio}') as novo
+    ON DUPLICATE KEY UPDATE
+      nota = novo.nota, 
+      curiosidade = novo.curiosidade;
   `
   console.log(`Executando a instrução: ${instrucaoSql}`)
   return database.executar(instrucaoSql)
