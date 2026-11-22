@@ -18,34 +18,40 @@ function livroNotas() {
 
       Livros = data
       for (let i = 0; i < data.length; i++) {
+        let semNota = true
+        if (data[i].nota != undefined) {
+          aval++
+          somaNota += data[i].nota
+          semNota = false
+        }
         bookCard +=
           `
-        <button class="grid-card"
+        <button class="grid-card ${semNota ? 'sem-nota' : ''}"
         onclick="livroInfo(${(data[i].id)-1})" 
         >
           <div class="cover" 
           style="background-image: url('${data[i].urlCapa}')"
           >
-            <span class="title">${data[i].titulo}</span>
-            <span class="author">${data[i].autor}</span>
+          </div>
+          <div class="grid-body">
+            <span class="title">
+              ${data[i].titulo}
+            </span>
+            <span class="author">
+              ${data[i].autor}
+            </span>
           </div>
           <div class="stars">
         `
-        if (data[i].nota != undefined) {
-          aval++
-          somaNota += data[i].nota
-        }
         for (let x = 0; x < 5; x++) {
           bookCard +=
             `<span style='${x < data[i].nota ? 'color:var(--text-secondary)' : ''}'>★</span>`
-
         }
         bookCard += `</div></button>`
       }
       document.getElementById('grid').innerHTML = bookCard;
-      document.getElementById('kpi-aval').innerHTML = aval;
-      document.getElementById('kpi-medium').innerHTML = aval ? (somaNota / aval).toFixed(1) : '-'
-      document.getElementById('kpi-read').innerHTML = data.length
+
+      document.getElementById('dash-title').innerHTML += ` — ${aval} de ${Livros.length} avaliados`;
     })
   })
 };
