@@ -25,6 +25,7 @@ function entrar() {
           sessionStorage.EMAIL_USUARIO = user.email;
           sessionStorage.NOME_USUARIO = user.nome;
           sessionStorage.ID_USUARIO = user.id;
+          sessionStorage.DADOS = user.validacao;
 
           setTimeout(function () {            window.location.href = '/app/index.html'
           }, 1000);
