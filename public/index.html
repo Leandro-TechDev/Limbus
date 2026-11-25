@@ -7,12 +7,11 @@
   <link rel="preload" href="Tagmarker.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-  <script defer src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
   <script defer src="script.js"></script>
   <title>Limbus Co.</title>
 </head>
 
-<body>
+<body onload="initCarousel();">
   <main id="site">
     <header class="header">
       <div class="header-section">
@@ -50,67 +49,64 @@
     </section>
 
     <section class="world-section">
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" id="slide-city">
+      <div class="carousel" id="world-carousel">
+        <div class="carousel-track">
+          <div class="carousel-slide" id="slide-city">
             <div class="city-section">
-              <div>
-                <h1>A CIDADE</h1>
-                <h2>Uma metrópolis recheada de sofrimento.</h2>
-                <span>A nossa cidade é dividida em 26 distritos, cada um com sua cultura única. Não existem dois
-                  distritos
-                  que
-                  sejam iguais. Por exemplo, em qualquer distrito que você estiver ficando, pode ser que comer comidas
-                  'reais'
-                  seja um ato normalizado e comum. Porém, em um distrito próximo ao seu, pode ser que comer comida sem
-                  ser
-                  <span class="redacted">carne humana</span> enlatada seja considerado anormal.</span>
-              </div>
+              <h1>A CIDADE</h1>
+              <h2>Uma metrópolis recheada de sofrimento.</h2>
+              <span>A nossa cidade é dividida em 26 distritos, cada um com sua cultura única. Não existem dois
+                distritos
+                que
+                sejam iguais. Por exemplo, em qualquer distrito que você estiver ficando, pode ser que comer comidas
+                'reais'
+                seja um ato normalizado e comum. Porém, em um distrito próximo ao seu, pode ser que comer comida sem
+                ser
+                <span class="redacted">carne humana</span> enlatada seja considerado anormal.</span>
             </div>
           </div>
 
-          <div class="swiper-slide" id="slide-districts">
+          <div class="carousel-slide" id="slide-districts">
             <div class="city-section">
-              <div>
-                <h1>OS DISTRITOS</h1>
-                <h2>Vinte e seis pedaços de um mesmo inferno.</h2>
-                <span>Do Distrito 1 ao Distrito 26, cada região é governada por uma Corporação da Asa, e as regras mudam
-                  a cada fronteira. No Distrito 4 as ruas cheiram a ferro e fumaça. No Distrito 9, música e sangue são
-                  servidos no mesmo palco. Atravessar dois distritos pode custar mais do que uma vida: pode custar a sua
-                  <span class="redacted">humanidade</span>.</span>
-              </div>
+              <h1>OS DISTRITOS</h1>
+              <h2>Vinte e seis pedaços de um mesmo inferno.</h2>
+              <span>Do Distrito 1 ao Distrito 26, cada região é governada por uma Corporação da Asa, e as regras
+                mudam
+                a cada fronteira. No Distrito 4 as ruas cheiram a ferro e fumaça. No Distrito 9, música e sangue são
+                servidos no mesmo palco. Atravessar dois distritos pode custar mais do que uma vida: pode custar a
+                sua
+                <span class="redacted">humanidade</span>.</span>
             </div>
           </div>
 
-          <div class="swiper-slide" id="slide-wings">
+          <div class="carousel-slide" id="slide-wings">
             <div class="city-section">
-              <div>
-                <h1>A CABEÇA</h1>
-                <h2>O topo da cadeia alimentar.</h2>
-                <span>A Cabeça comanda A Cidade, e suas leis não são negociadas. Nenhuma arma de fogo. Nenhuma
-                  inteligência artificial. Nenhum tabu é discutido em voz alta. Aqueles que quebram suas regras não são
-                  presos nem julgados — simplesmente <span class="redacted">deixam de existir</span>, e o resto da
-                  cidade
-                  aprende a não perguntar o porquê.</span>
-              </div>
+              <h1>A CABEÇA</h1>
+              <h2>O topo da cadeia alimentar.</h2>
+              <span>A Cabeça comanda A Cidade, e suas leis não são negociadas. Nenhuma arma de fogo. Nenhuma
+                inteligência artificial. Nenhum tabu é discutido em voz alta. Aqueles que quebram suas regras não
+                são
+                presos nem julgados — simplesmente <span class="redacted">deixam de existir</span>, e o resto da
+                cidade
+                aprende a não perguntar o porquê.</span>
             </div>
           </div>
 
-          <div class="swiper-slide" id="slide-limbus">
+          <div class="carousel-slide" id="slide-limbus">
             <div class="city-section">
-              <div>
-                <h1>LIMBUS COMPANY</h1>
-                <h2>Treze pecadores. Uma barca. Nenhum perdão.</h2>
-                <span>Uma empresa de ônibus com um único propósito: recuperar os Fragmentos Dourados espalhados pela
-                  cidade. Cada pecador carrega uma culpa que não pode ser lavada, e cada Identidade que vestem é uma
-                  vida que poderiam ter tido. No fim, alguém precisa <span class="redacted">pagar</span> por
-                  isso.</span>
-              </div>
+              <h1>LIMBUS COMPANY</h1>
+              <h2>Treze pecadores. Uma barca. Nenhum perdão.</h2>
+              <span>Uma empresa de ônibus com um único propósito: recuperar os Fragmentos Dourados espalhados pela
+                cidade. Cada pecador carrega uma culpa que não pode ser lavada, e cada Identidade que vestem é uma
+                vida que poderiam ter tido. No fim, alguém precisa <span class="redacted">pagar</span> por
+                isso.</span>
             </div>
           </div>
+
         </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+      </div>
+      <button class="carousel-btn" id="carousel-prev" aria-label="Anterior">‹</button>
+      <button class="carousel-btn" id="carousel-next" aria-label="Próximo">›</button>
       </div>
     </section>
 
@@ -144,8 +140,9 @@
         </button>
         <div class="profile-text">
           <h2 id="char-num"></h2>
-          <h1 id="char-name"></h2>
-          <p id="char-desc"></p>
+          <h1 id="char-name">
+            </h2>
+            <p id="char-desc"></p>
         </div>
       </div>
     </div>
