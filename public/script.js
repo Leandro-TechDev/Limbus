@@ -1,3 +1,5 @@
+const charactersView = document.getElementById('characters-view');
+const profileView = document.getElementById('character-profile');
 let indice = 0;
 
 
