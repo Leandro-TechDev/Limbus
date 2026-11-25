@@ -78,6 +78,7 @@ body{
 
 
 .user-area {
+  z-index: 10;
   color: var(--color-paper);
   box-sizing: border-box;
   padding: 0.5rem 1rem;
@@ -140,6 +141,21 @@ body{
   color: var(--color-gold-500);
   opacity: 1;
   border-left-color: var(--color-gold-500);
+}
+
+.user-btn.logout {
+  width: 100%;
+  font-size: 1.4rem;
+  background-color: transparent;
+  border-color: var(--color-ink-600);
+  border-left: 5px solid var(--color-ink-600);
+  color: var(--color-ink-200);
+}
+
+.user-btn.logout:hover {
+  color: var(--color-crimson-300);
+  border-color: var(--color-crimson-700);
+  border-left-color: var(--color-crimson-500);
 }
 
 .dashboard-area {
@@ -459,4 +475,37 @@ body{
   background: var(--color-crimson-700);
   color: var(--text-secondary);
   font-weight: 700;
+}
+
+#error-warning {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  z-index: 5;
+  inset: 0;
+
+  background: color-mix(in srgb, var(--color-night-900) 70%, transparent 30%);
+  backdrop-filter: blur(10px);
+}
+
+#error-body {
+  display: flex;
+  font-size: 2rem;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  gap: 20px;
+  padding: 20px 10px;
+
+  width: 45vw;
+  height: 30vh;
+  background-color: color-mix(in srgb, var(--color-night-900) 70%);
+  backdrop-filter: blur(4px);
+
+  border: 2px solid var(--color-paper);
+  border-radius: 10px;
 }

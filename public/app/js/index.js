@@ -3,9 +3,14 @@ let personagensDados
 let aval
 
 function kpiCall() {
-  livroNotas();
-  personagensBuscar();
-  temasRecorrentesBuscar();
+  if (sessionStorage.DADOS == true) {
+    livroNotas();
+    personagensBuscar();
+    temasRecorrentesBuscar();
+  } else {
+    let error = document.getElementById('error-warning')
+    error.style.display = 'flex'
+  }
 }
 
 

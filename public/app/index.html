@@ -28,6 +28,9 @@
         <div class="user-btn inactive" onclick="window.location = 'characters.html'">
           Personagens
         </div>
+        <button class="user-btn logout" onclick="limparSessao()">
+          Sair
+        </button>
 
       <span id="user-footer">
         Encare o pecado<br>
@@ -36,6 +39,20 @@
 
     </div>
     <div class="dashboard-area">
+      <div id="error-warning">
+        <div id="error-body">
+          Você não forneceu nenhum dado ainda.
+          <br>
+          Vá para uma dessas páginas, e coloque dados antes de visualizar essa!
+          <div class="user-btn active" onclick="window.location = 'characters.html'">
+            Characters
+          </div>
+          <div class="user-btn active" onclick="window.location = 'books.html'">
+            Books
+          </div>
+        </div>
+      </div>
+
       <span class="dash-welcome">
         Bem vindo de volta, Leandro
       </span>
