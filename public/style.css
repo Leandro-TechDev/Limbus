@@ -219,6 +219,7 @@
     justify-content: space-between;
 
     .calling {
+      text-decoration: none;
       font-size: 1.2rem;
       font-family: var(--font-big-shoulders), sans-serif;
       font-weight: 800;
@@ -236,6 +237,7 @@
     }
 
     .calling:hover {
+      cursor: pointer;
       background: #ffc800;
       color: #111;
       box-shadow: 0 0 25px rgba(255, 200, 0, 0.5);
@@ -382,7 +384,7 @@
   Identity Archive
 */
 
-.chara-archive {
+.archive {
   display: grid;
   grid-template-columns: repeat(6, 230px);
   gap: 2rem;
@@ -420,19 +422,9 @@
   letter-spacing: 2rem;
 }
 
-#profile-card {
-  display: flex;
-  flex-direction: row;
-}
-
-.profile-body {
-  width: 100%;
-}
-
-#profile-back {
-  background-color: #000000;
-  border: none;
-}
+/*
+  Character profile section
+*/
 
 .character-profile[hidden] {
   display: none;
@@ -441,25 +433,152 @@
 .character-profile {
   width: auto;
   height: 80vh;
-  background-repeat: no-repeat;
-  background-size: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 4rem;
+  background: #000;
+  animation: profileIn .5s ease-out both;
+}
+
+@keyframes profileIn {
+  from { opacity: 0 }
+  to   { opacity: 1 }
+}
+
+#profile-card {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 80%;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--color-gold-500);
+  border-radius: 8px;
+  box-shadow: 0 0 25px var(--logo-glow), inset 0 0 60px rgba(0, 0, 0, 0.6);
+}
+
+#char-img {
+  max-width: 38%;
+  height: auto;
+  object-fit: contain;
+  padding: 1.5rem 1rem 1.5rem 2rem;
+  filter: drop-shadow(0 0 18px rgba(0, 0, 0, 0.8));
+}
+
+.profile-body {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2.5rem 2.5rem;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.55));
+}
+
+#profile-back {
+  display: inline-flex;
+  align-items: flex-start;
+  width: fit-content;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  background-color: var(--bg-page);
+  border: 1px solid var(--color-gold-500);
+  border-radius: 30px;
+  color: var(--color-gold-500);
+  font-family: var(--font-big-shoulders);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#profile-back img {
+  width: 1.2rem;
+  height: 1.2rem;
+  transition: transform 0.3s;
+}
+
+#profile-back:hover {
+  background: var(--color-gold-500);
+  color: #111;
+  box-shadow: 0 0 25px rgba(255, 200, 0, 0.5);
 }
 
 .profile-text {
   display: flex;
   flex-direction: column;
-  color: var(--text-secondary);
-  align-items: center;
   justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: var(--text-secondary);
 }
 
 #char-num {
   font-family: var(--font-big-shoulders);
-  font-size: 3rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: var(--color-crimson-500);
+  text-transform: uppercase;
 }
 
 #char-name {
   font-family: var(--font-big-shoulders);
   font-size: 6rem;
-  margin-top: -15px;
+  font-weight: 900;
+  margin: 0;
+  color: var(--title-text);
+  text-transform: uppercase;
+  text-shadow: 0 0 1.2rem var(--logo-glow);
+}
+
+#char-name::after {
+  content: "";
+  display: block;
+  width: 24rem;
+  height: 3px;
+  margin-top: 1rem;
+  background: linear-gradient(90deg, var(--color-crimson-500), transparent);
+}
+
+.desc {
+  max-width: 38rem;
+  margin-top: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--project-color);
+}
+
+#books-title{
+  display: inline-block;
+  width: 100%;
+  color: var(--text-secondary);
+  font-family: var(--font-tagmarker);
+  font-size: 8rem;
+  text-align: center;
+  letter-spacing: 2rem;
+}
+
+.books-card {
+  background-color: var(--bg-page);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .cover {
+    aspect-ratio: 2/2.6;
+    background-size: cover;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .book-title {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+  }
 }
