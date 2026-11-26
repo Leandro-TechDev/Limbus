@@ -24,6 +24,7 @@ function entrar() {
 
           sessionStorage.EMAIL_USUARIO = user.email;
           sessionStorage.NOME_USUARIO = user.nome;
+          sessionStorage.SENHA_USUARIO = senhaVar
           sessionStorage.ID_USUARIO = user.id;
           sessionStorage.DADOS = user.validacao;
 

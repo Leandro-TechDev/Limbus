@@ -3,6 +3,37 @@ let personagensDados
 let aval
 
 function kpiCall() {
+  fetch("/usuarios/autenticar", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          emailServer: sessionStorage.EMAIL_USUARIO,
+          senhaServer: sessionStorage.SENHA_USUARIO
+        })
+      }).then(function (resposta) {
+        if (resposta.ok) {
+          console.log(resposta);
+  
+          resposta.json().then(json => {
+            const user = json[0]
+            sessionStorage.DADOS = user.validacao;
+  
+            setTimeout(function () {            window.location.href = '/app/index.html'
+            }, 1000);
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+          resposta.text().then(texto => {
+            console.error(texto);
+            finalizarAguardar(texto);
+          });
+        }
+      }).catch(function (erro) {
+        console.log(erro);
+      })
+
   if (sessionStorage.DADOS == true) {
     livroNotas();
     personagensBuscar();
