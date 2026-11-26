@@ -49,7 +49,7 @@ function renderizador(data) {
   document.getElementById('char-name').textContent = `${data.nome}`
   document.getElementById('char-img').src = `assets/Sinners/Sin${data.id}.webp`
   document.getElementById('char-desc').textContent = data.descricaoLivro
-  document.getElementById('char-book').textContent = data.titulo
+  document.getElementById('char-game').textContent = data.descricaoJogo
   document.getElementById('char-author').textContent = data.autor
 }
 
@@ -58,3 +58,32 @@ function fecharPersonagem() {
   charactersView.hidden = false
   charactersView.scrollIntoView({ behavior: 'smooth' })
 }
+
+function livroNotas() {
+  let aux = 0 
+  fetch(`/livros/${aux}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(res => {
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    res.json().then(data => {
+      let bookCard = `
+      <span id="books-title">Livros</span>
+      <div class="archive">`
+      for (let i = 0; i < data.length; i++) {
+        bookCard +=`
+        <div class="books-card">
+          <img class="cover" src="${data[i].urlCapa}">
+          <span class="book-title">
+            ${data[i].titulo}
+          </span>
+        </div>
+        `
+      }
+      bookCard += `</div>`
+      document.getElementById('books-view').innerHTML = bookCard;
+    })
+  })
+};

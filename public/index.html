@@ -11,7 +11,7 @@
   <title>Limbus Co.</title>
 </head>
 
-<body onload="initCarousel();">
+<body onload="initCarousel(); livroNotas()">
   <main id="site">
     <header class="header">
       <div class="header-section">
@@ -23,10 +23,10 @@
 
       <div class="header-section">
         <nav class="header-nav">
-          <div class="nav-btn">Inicio</div>
-          <div class="nav-btn">Mundo</div>
-          <div class="nav-btn">Personagens</div>
-          <div class="nav-btn">História</div>
+          <a class="nav-btn" href="#about-section">Inicio</a>
+          <a class="nav-btn" href="#world-section">Mundo</a>
+          <a class="nav-btn" href="#characters-view">Personagens</a>
+          <a class="nav-btn" href="#books-view">História</a>
         </nav>
       </div>
 
@@ -69,19 +69,18 @@
           </p>
         </div>
         <div id="about-footer">
-          <button class="calling" href="#world-section">
+          <a class="calling" href="#world-section">
             Explore o mundo
-          </button>
-          <button class="calling" href="#characters-view">
+          </a>
+          <a class="calling" href="#characters-view">
             Personagens
-          </button>
-          <button class="calling">
+          </a>
+          <a class="calling" href="#books-view">
             Obras literárias
-          </button>
+          </a>
         </div>
       </div>
     </section>
-
     <section class="world-section" id="world-section">
       <div class="carousel" id="world-carousel">
         <div class="carousel-track">
@@ -142,10 +141,9 @@
       </div>
       </div>
     </section>
-
     <section class="characters" id="characters-view">
       <span id="chara-title">Personagens</span>
-      <div class="chara-archive">
+      <div class="archive">
         <img class="identity" src="assets/Cards/Sinner_1.webp" onclick="troca(1)">
         <img class="identity" src="assets/Cards/Sinner_2.webp" onclick="troca(2)">
         <img class="identity" src="assets/Cards/Sinner_3.webp" onclick="troca(3)">
@@ -160,8 +158,6 @@
         <img class="identity" src="assets/Cards/Sinner_12.webp" onclick="troca(12)">
       </div>
     </section>
-  </main>
-
 
   <section class="character-profile" id="character-profile" hidden>
     <div id="profile-card">
@@ -169,17 +165,30 @@
       <div class="profile-body">
         <button id="profile-back" onclick="fecharPersonagem()">
           <img src="assets/arrow-left.svg" alt="←">
-          Voltar
+          VOLTAR
         </button>
         <div class="profile-text">
           <h2 id="char-num"></h2>
-          <h1 id="char-name">
-            </h2>
-            <p id="char-desc"></p>
+          <h1 id="char-name"></h1>
+          <div>
+            <h3>Livro</h3>
+            <p class="desc" id="char-desc"></p>
+          </div>
+          <div>
+            <h3>Jogo</h3>
+            <p char="desc" id="char-game"></p>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+    <section id="books-view">
+      
+    </section>
+
+  </main>
+
 </body>
 
 </html>
