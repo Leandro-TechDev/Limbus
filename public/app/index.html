@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style/style.css">
+  <script src="js/sessao.js"></script>
+  <script src="js/index.js"></script>
+
+  <title>Dashboard</title>
+</head>
+
+<body onload="validarSessao(); kpiCall()">
+  <main class="site">
+    <div class="user-area">
+      <img src="../assets/Limbus_logo_feather.png" alt="Logo Limbus" width="100px">
+        <div class="user-btn active">
+          Home
+        </div>
+        <div class="user-btn inactive" onclick="window.location = 'books.html'">
+          Livros
+        </div>
+        <div class="user-btn inactive" onclick="window.location = 'characters.html'">
+          Personagens
+        </div>
+        <button class="user-btn logout" onclick="limparSessao()">
+          Sair
+        </button>
+
+      <span id="user-footer">
+        Encare o pecado<br>
+        Salve o E.G.O
+      </span>
+
+    </div>
+    <div class="dashboard-area">
+      <div id="error-warning">
+        <div id="error-body">
+          Você não forneceu nenhum dado ainda.
+          <br>
+          Vá para uma dessas páginas, e coloque dados antes de visualizar essa!
+          <div class="user-btn active" onclick="window.location = 'characters.html'">
+            Characters
+          </div>
+          <div class="user-btn active" onclick="window.location = 'books.html'">
+            Books
+          </div>
+        </div>
+      </div>
+
+      <span class="dash-welcome">
+        Bem vindo de volta, Leandro
+      </span>
+      <div class="kpi-area">
+
+        <div class="kpi-card">
+          <div class="kpi-title">
+            Livros Lidos
+          </div>
+          <div class="kpi-body">
+            <span id="kpi-read">{LIDOS}</span> de 13 livros lidos
+          </div>
+          <div class="kpi-graph">
+            <div id="graph-bar fill"></div>
+          </div>
+          <p class="graph-percent" id="graph-percent"></p>
+        </div>
+
+        <div class="kpi-card">
+          <div id="kpi-structure">
+            <div>
+              <div class="kpi-title">
+                Despertou sua curiosidade
+              </div>
+              <div class="kpi-grid">
+                <span id="kpi-sinner">{NOME}</span>
+                <span id="kpi-curio">{RANKING}</span>
+              </div>
+            </div>
+            <img src="../assets/Cards/Sinner_1.webp" alt="" id="sinnerCover" class="sinner-archive">
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-title">
+            Seus temas favoritos
+          </div>
+          <div class="kpi-grid">
+            <span class="badge" id="frstTheme">Solidão</span>
+            <span class="badge" id="scndTheme">Guerra</span>
+            <span class="badge" id="thrdTheme">Identidade</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-title">
+            Média de nota dos Personagens
+          </div>
+          <div id="kpi-body">
+            <span id="kpi-eval">4.2</span>
+            <span id="kpi-limit">/5</span>
+          </div>
+          <div class="kpi-star">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="graph-area">
+        <div id="graphs">
+          <div class="my-eval">
+            <span class="graph-title">Minhas Avaliações</span>
+            <span class="graph-sub">Personagens</span>
+            <div class="chart-box">
+              <canvas id="eval-characters"></canvas>
+            </div>
+          </div>
+
+          <div class="my-eval">
+            <span class="graph-sub">Livros</span>
+            <div class="chart-box">
+              <canvas id="eval-books"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="my-books">
+          <div id="book-section">
+            <span class="graph-title">
+              Seu top 5 livros
+            </span>
+
+            <div id="book-grid"></div>
+          </div>
+
+          <div class="chart-box" id="dough-graph">
+            <canvas id="dough-books"></canvas>
+            <div class="donut-center">
+              <strong id="donut-percent">0%</strong>
+              <span>Dos livros<br>lidos</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

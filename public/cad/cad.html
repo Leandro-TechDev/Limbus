@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="cad.css">
+  <script src="script.js"></script>
+
+  <title>Register</title>
+</head>
+
+<body>
+  <main class="site">
+    <img src="../assets/Star.webp" alt="" class="background-img">
+    <div id="register-area">
+      <div id="register-card">
+
+        <div id="register-images">
+          <a href="../index.html">
+            <img src="../assets/arrow-left.svg" alt="" class="register-img">
+          </a>
+          <img src="../assets/Site-logo.webp" alt="" class="register-img">
+        </div>
+
+        <div id="register-body">
+          <span id="register-title">Crie sua conta!</span>
+          <div class="user-Info">
+            <label for="userName">Nome</label>
+            <input type="text" class="user-input" id="userName" placeholder='ex.: Ryan Batista'>
+          </div>
+          <div class="user-Info">
+            <label for="userEmail">Email</label>
+            <input type="email" class="user-input" id="userEmail" placeholder='example@gmail.com'>
+          </div>
+          <div class="user-Info">
+            <label for="userPwd">Senha</label>
+            <div class="senha">A sua senha precisa de um caracter especial, uma letra maíuscula e uma minúscula</div>
+            <input type="password" class="user-input" id="userPwd" placeholder='••••••' oninput="verificarSenhaIgual(); verificarNivel(userPwd.value)">
+            <span id="pwdState">
+              <div class="bar" id="b1"></div>
+              <div class="bar" id="b2"></div>
+              <div class="bar" id="b3"></div>
+            </span>
+            <div id="status"></div>
+          </div>
+          <div class="user-Info">
+            <label for="userPwdConfirm">Confirmar senha</label>
+            <div id="extra"></div>
+            <input type="password" class="user-input" id="userPwdConfirm" placeholder='••••••'
+            oninput="verificarSenhaIgual()">
+          </div>
+        </div>
+
+        <div id="form-footer">
+          <button onclick="entrar()" id="button-form" disabled="true">
+            Entrar
+          </button>
+          <div id="form-cad">
+            <img src="../assets/rodya.png" alt="">
+            <a href="../cad/cad.html" style="text-decoration: none;">
+              <div id="form-sender" >
+                <span class="call" id="call-not">Já tem cadastro?</span> 
+                <span class="call" id="call-enter">Entre aqui!</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

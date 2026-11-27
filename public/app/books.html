@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/books.js"></script>
+  <script src="js/sessao.js"></script>
+
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/books.css">
+
+  <title>Dashboard</title>
+</head>
+
+<body onload="validarSessao(); livroNotas();">
+  <main class="site">
+    <div class="user-area">
+      <img src="../assets/Limbus_logo_feather.png" alt="" width="100px">
+      <div class="user-btn inactive" onclick="window.location = 'index.html'">
+        Home
+      </div>
+      <div class="user-btn active">
+        Livros
+      </div>
+      <div class="user-btn inactive" onclick="window.location = 'characters.html'">
+        Personagens
+      </div>
+      <button class="user-btn logout" onclick="limparSessao()">
+          Sair
+      </button>
+      
+      <span id="user-footer">
+        Encare o pecado<br>
+        Salve o E.G.O
+      </span>
+    </div>
+    <div class="dashboard-area">
+      <span class="dash-welcome" id="dash-title">
+        Avaliar os Livros
+      </span>
+      <div id="container">
+        <div id="grid"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Sessão do dialog -->
+
+  <dialog id="dlg" hidden>
+    <button id="x" class="close" onclick="dlg.close()">x</button>
+    <h2 id="title"></h2>
+    <p id="sub"></p>
+    <div class="dlg-note">
+      Sua nota
+      <div class="dlg-rating">
+        <span id="dlg-stars">
+          <span class="dlg-star">★</span>
+          <span class="dlg-star">★</span>
+          <span class="dlg-star">★</span>
+          <span class="dlg-star">★</span>
+          <span class="dlg-star">★</span>
+        </span>
+        <span class="num" id="nv">Sem nota</span>
+      </div>
+    </div>
+    <div class="field">
+      O que você achou do livro?
+      <textarea id="dlg-field" placeholder="Escreva sua opinião (opcional)"></textarea>
+    </div>
+    <button id="save" onclick="dlg.close();">
+      Salvar avaliação
+    </button>
+  </dialog>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="Tagmarker.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <script defer src="script.js"></script>
+  <title>Limbus Co.</title>
+</head>
+
+<body onload="initCarousel(); livroNotas()">
+  <main id="site">
+    <header class="header">
+      <div class="header-section">
+        <img src="assets/Limbus_logo_feather.png" class="header-logo">
+        <div class="font logo-text">
+          <span>Limbus Company</span>
+        </div>
+      </div>
+
+      <div class="header-section">
+        <nav class="header-nav">
+          <a class="nav-btn" href="#about-section">Inicio</a>
+          <a class="nav-btn" href="#world-section">Mundo</a>
+          <a class="nav-btn" href="#characters-view">Personagens</a>
+          <a class="nav-btn" href="#books-view">História</a>
+        </nav>
+      </div>
+
+      <div class="header-section">
+        <div class="user-area">
+          <div onclick="window.location.href = '/login/login.html'">Login</div>
+          <div onclick="window.location.href = '/cad/cad.html'">Cadastro</div>
+        </div>
+      </div>
+
+    </header>
+    <section class="hero-section">
+      <video class="hero-video" autoplay muted playsinline>
+        <source src="assets/PMoon.mp4" type="video/mp4">
+      </video>
+      <video class="hero-video hero-video-overlay" autoplay muted playsinline loop>
+        <source src="assets/pagesLOR.webm" type="video/webm">
+      </video>
+      <span id="hero-calling">
+        Uma releitura pós-moderna da literatura clássica.
+      </span>
+    </section>
+
+    <section id="about-section">
+      <div id="about-body">
+        <span id="about-title">
+          Conheça sobre o jogo
+        </span>
+        <div id="about-text">
+          <p>
+            <span>Limbus Company</span> é um RPG (Jogo de roleplay) da Project Moon com foco em leitura e narrativa. Nele, você acompanha um grupo chamado <span>Pecadores</span>, que viaja por diferentes lugares em busca de respostas e enfrenta seus próprios passados.
+          </p>
+
+          <p>
+            Cada Pecador é inspirado em um personagem da <span>literatura clássica</span>, como Dom Quixote, Ismael (de Moby Dick) e Gregor (de Metamorfose). Conhecer essas <span>obras literárias</span> ajuda a entender quem eles são e por que agem como agem.
+          </p>
+
+          <p>
+            Neste site, você não precisa ter jogado para explorar. Conheça os personagens, descubra os livros que os inspiraram e diga o que achou.
+          </p>
+        </div>
+        <div id="about-footer">
+          <a class="calling" href="#world-section">
+            Explore o mundo
+          </a>
+          <a class="calling" href="#characters-view">
+            Personagens
+          </a>
+          <a class="calling" href="#books-view">
+            Obras literárias
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="world-section" id="world-section">
+      <div class="carousel" id="world-carousel">
+        <div class="carousel-track">
+          <div class="carousel-slide" id="slide-city">
+            <div class="city-section">
+              <h1>A CIDADE</h1>
+              <h2>Uma metrópolis recheada de sofrimento.</h2>
+              <span>A nossa cidade é dividida em 26 distritos, cada um com sua cultura única. Não existem dois
+                distritos
+                que
+                sejam iguais. Por exemplo, em qualquer distrito que você estiver ficando, pode ser que comer comidas
+                'reais'
+                seja um ato normalizado e comum. Porém, em um distrito próximo ao seu, pode ser que comer comida sem
+                ser
+                <span class="redacted">carne humana</span> enlatada seja considerado anormal.</span>
+            </div>
+          </div>
+
+          <div class="carousel-slide" id="slide-limbus">
+            <div class="city-section">
+              <h1>LIMBUS COMPANY</h1>
+              <h2>Treze pecadores. Um ônibus. Vidas descartáveis.</h2>
+              <span>Uma corporação misteriosa. Você, como gerente, é responsável pelo departamento LCB, o time mãos a
+                obra, seu propósito é recuperar galhos dourados espalhadas em um certo incidente. Cada pecador carrega
+                uma culpa que não pode ser lavada, e resolver isso pode ser a chave de acesso a esses galhos. No fim,
+                alguém precisa <span class="redacted">pagar</span> por isso.</span>
+            </div>
+          </div>
+
+          <div class="carousel-slide" id="slide-districts">
+            <div class="city-section">
+              <h1>OS DISTRITOS</h1>
+              <h2>Vinte e seis pedaços de um mesmo inferno.</h2>
+              <span>Do Distrito 1 ao Distrito 26, cada região é governada por uma Corporação da Asa, e as regras
+                mudam
+                a cada fronteira. No Distrito 4 as ruas cheiram a ferro e fumaça. No Distrito 9, música e sangue são
+                servidos no mesmo palco. Atravessar dois distritos pode custar mais do que uma vida: pode custar a
+                sua
+                <span class="redacted">humanidade</span>.</span>
+            </div>
+          </div>
+
+          <div class="carousel-slide" id="slide-wings">
+            <div class="city-section">
+              <h1>A CABEÇA</h1>
+              <h2>O topo da cadeia alimentar.</h2>
+              <span>A Cabeça comanda A Cidade, e suas leis não são negociadas. Nenhuma arma de fogo. Nenhuma
+                inteligência artificial. Nenhum tabu é discutido em voz alta. Aqueles que quebram suas regras não
+                são
+                presos nem julgados — simplesmente <span class="redacted">deixam de existir</span>, e o resto da
+                cidade
+                aprende a não perguntar o porquê.</span>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn" id="carousel-prev" aria-label="Anterior">‹</button>
+        <button class="carousel-btn" id="carousel-next" aria-label="Próximo">›</button>
+      </div>
+      </div>
+    </section>
+    <section class="characters" id="characters-view">
+      <span id="chara-title">Personagens</span>
+      <div class="archive">
+        <img class="identity" src="assets/Cards/Sinner_1.webp" onclick="troca(1)">
+        <img class="identity" src="assets/Cards/Sinner_2.webp" onclick="troca(2)">
+        <img class="identity" src="assets/Cards/Sinner_3.webp" onclick="troca(3)">
+        <img class="identity" src="assets/Cards/Sinner_4.webp" onclick="troca(4)">
+        <img class="identity" src="assets/Cards/Sinner_5.webp" onclick="troca(5)">
+        <img class="identity" src="assets/Cards/Sinner_6.webp" onclick="troca(6)">
+        <img class="identity" src="assets/Cards/Sinner_7.webp" onclick="troca(7)">
+        <img class="identity" src="assets/Cards/Sinner_8.webp" onclick="troca(8)">
+        <img class="identity" src="assets/Cards/Sinner_9.webp" onclick="troca(9)">
+        <img class="identity" src="assets/Cards/Sinner_10.webp" onclick="troca(10)">
+        <img class="identity" src="assets/Cards/Sinner_11.webp" onclick="troca(11)">
+        <img class="identity" src="assets/Cards/Sinner_12.webp" onclick="troca(12)">
+      </div>
+    </section>
+
+  <section class="character-profile" id="character-profile" hidden>
+    <div id="profile-card">
+      <img id="char-img" alt="">
+      <div class="profile-body">
+        <button id="profile-back" onclick="fecharPersonagem()">
+          <img src="assets/arrow-left.svg" alt="←">
+          VOLTAR
+        </button>
+        <div class="profile-text">
+          <h2 id="char-num"></h2>
+          <h1 id="char-name"></h1>
+          <div>
+            <h3>Livro</h3>
+            <p class="desc" id="char-desc"></p>
+          </div>
+          <div>
+            <h3>Jogo</h3>
+            <p char="desc" id="char-game"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="books-view">
+      
+    </section>
+
+  </main>
+
+</body>
+
+</html>
